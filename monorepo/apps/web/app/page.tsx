@@ -22,7 +22,7 @@ export default function Page() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-black">
-        <OnchainKitProvider apiKey="HtKBr6ZPPcdHN6plf9qm4G3TAuQtV7Kf" chain={base}>
+        <OnchainKitProvider apiKey={process.env.API_KEY!}chain={base}>
       {/* Animated Background */}
       <div className="absolute inset-0 z-0">
         {/* Gradient Orbs */}
