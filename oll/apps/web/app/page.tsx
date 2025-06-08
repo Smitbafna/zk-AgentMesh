@@ -8,7 +8,7 @@ import React from 'react';
 import StatsSection from '../components/STATsection';
 import HowItWorksSection from '../components/HIWsection';
 import Footer from '../components/Footer';
-import Chat from '../components/Chat';
+
 import FeaturesSection from '../components/Features';
 import HeroSection from '../components/Hero';
 
@@ -77,7 +77,7 @@ export default function Page() {
 <StatsSection/>
 <HowItWorksSection/>
 <FeaturesSection/>
-<Chat/>
+
 <Footer/>
 
 
