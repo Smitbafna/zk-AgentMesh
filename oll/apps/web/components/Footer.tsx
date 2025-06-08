@@ -162,7 +162,7 @@ const Footer = () => {
         {/* Bottom Footer */}
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-sm text-white/50">
-            © 2025 AgentStore.AI. All rights reserved.
+            © 2025 AgentMesh. All rights reserved.
           </div>
           <div className="flex items-center space-x-4 text-sm text-white/50">
             <span>Built with ❤️ for the AI community</span>
