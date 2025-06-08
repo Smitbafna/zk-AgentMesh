@@ -2,15 +2,13 @@
 import { base } from 'viem/chains';
 import styles from "./page.module.css";
 import Header from '@/components/Headers';
-import FAQSection from "../components/FAQsection";
-import CTASection from "../components/CTAsection";
+import Chat from "../../components/Chat.js";
 import React from 'react';
-import StatsSection from '../components/STATsection';
-import HowItWorksSection from '../components/HIWsection';
-import Footer from '../components/Footer';
-import Chat from '../components/Chat';
-import FeaturesSection from '../components/Features';
-import HeroSection from '../components/Hero';
+
+
+
+
+
 
 import { OnchainKitProvider } from '@coinbase/onchainkit';
 
@@ -71,15 +69,7 @@ export default function Page() {
       {/* Main Content */}
       <div className="relative z-10 min-h-screen">
        <Header/>
-<HeroSection/>
-       
-
-<StatsSection/>
-<HowItWorksSection/>
-<FeaturesSection/>
 <Chat/>
-<Footer/>
-
 
 
       </div>

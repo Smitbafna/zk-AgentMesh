@@ -2,7 +2,7 @@
 import { base } from 'viem/chains';
 import styles from "./page.module.css";
 import Header from '@/components/Headers';
-import Chat from "../../components/Chat";
+import CTAsection from "../../components/CTAsection.js";
 import React from 'react';
 
 
@@ -69,7 +69,7 @@ export default function Page() {
       {/* Main Content */}
       <div className="relative z-10 min-h-screen">
        <Header/>
-<Chat/>
+<CTAsection/>
 
 
       </div>

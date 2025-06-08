@@ -1,6 +1,6 @@
-import { AgentRequest, AgentResponse } from "../../../types/api";
+import { AgentRequest, AgentResponse } from "../../../types/api.js";
 import { NextResponse } from "next/server";
-import { createAgent } from "./create-agent";
+import { createAgent } from "./create-agent.js";
 /**
  * Handles incoming POST requests to interact with the AgentKit-powered AI agent.
  * This function processes user messages and streams responses from the agent.

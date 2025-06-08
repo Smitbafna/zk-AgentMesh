@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useAgent } from "../hooks/useAgent";
+import { useAgent } from "../hooks/useAgent.js";
 import ReactMarkdown from "react-markdown";
 
 /**

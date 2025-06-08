@@ -2,7 +2,7 @@ import { getLangChainTools } from "@coinbase/agentkit-langchain";
 import { MemorySaver } from "@langchain/langgraph";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
 import { ChatOpenAI } from "@langchain/openai";
-import { prepareAgentkitAndWalletProvider } from "./prepare-agentkit";
+import { prepareAgentkitAndWalletProvider } from "./prepare-agentkit.js";
 
 /**
  * Agent Configuration Guide
