@@ -37,7 +37,7 @@ function AgentCreationSection() {
     { id: 'titan', name: 'Amazon Titan', description: 'Large-scale text generation' }
   ];
 
-  const handleInputChange = (field, value) => {
+  const handleInputChange = (field:any, value:any) => {
     setAgentData(prev => ({ ...prev, [field]: value }));
   };
 
