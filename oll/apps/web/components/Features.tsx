@@ -74,7 +74,7 @@ const FeaturesSection = () => {
     <section className="container mx-auto px-6 py-20">
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-          Why Choose <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">AgentStore.AI</span>?
+          Why Choose <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">AgentMesh</span>?
         </h2>
         <p className="text-xl text-white/70 max-w-3xl mx-auto">
           The most advanced platform for AI agent creation, deployment, and monetization
