@@ -5,12 +5,35 @@ import Header from '@/components/Headers';
 import React, { useState } from 'react';
 import { OnchainKitProvider } from '@coinbase/onchainkit';
 
+interface AgentData {
+  name: string;
+  description: string;
+  useCase: string;
+  pricing: string;
+  selfPayout: string;
+  infraPayout: string;
+  daoPayout: string;
+  endpointType: string;
+  selectedModel: string;
+  customEndpoint: string;
+
+  // plus these new ones you mentioned:
+  agentId?: string;
+  contractAddress?: string;
+  akashDeployment?: string;
+  marketplaceUrl?: string;
+  apiEndpoint?: string;
+  deploymentTime?: string;
+  status?: string;
+}
+
 // Agent Creation Component replacing CTAsection
 function AgentCreationSection() {
+
   const [currentStep, setCurrentStep] = useState(1);
   const [isDeployed, setIsDeployed] = useState(false);
   const [deploymentDetails, setDeploymentDetails] = useState(null);
-  const [agentData, setAgentData] = useState({
+  const [agentData, setAgentData] = useState<AgentData>({
     name: '',
     description: '',
     useCase: '',
@@ -18,11 +41,11 @@ function AgentCreationSection() {
     selfPayout: '70',
     infraPayout: '20',
     daoPayout: '10',
-    endpointType: 'bedrock', // 'bedrock' or 'custom'
+    endpointType: 'bedrock',
     selectedModel: 'claude',
     customEndpoint: ''
   });
-
+  
   const steps = [
     { id: 1, title: 'Upload Metadata', icon: '' },
     { id: 2, title: 'Set Pricing', icon: '' },
