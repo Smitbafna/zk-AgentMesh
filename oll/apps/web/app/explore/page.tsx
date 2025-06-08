@@ -96,118 +96,7 @@ const agents = [
 
 
 
-const getMockResponse = (agent, query) => {
-  const responses = {
-    1: `Document Summary
-Title: The Benefits of Remote Work
 
-Summary:
-This document explores how remote work has transformed modern workplaces by offering flexibility, increased productivity, and cost savings. It outlines key advantages such as improved work-life balance, access to a global talent pool, and reduced commuting stress. The document also addresses common challenges, including communication barriers and the need for robust technology infrastructure. Finally, it recommends best practices for companies to implement effective remote work policies.
-
-Key Insights:
-
-Remote work boosts employee satisfaction and retention.
-
-Companies save on office space and operational costs.
-
-Technology tools are critical for collaboration and security.
-
-Clear communication and trust-building are essential for remote teams.
-
-Recommendations:
-
-Invest in reliable communication platforms.
-
-Provide flexible schedules to accommodate diverse employee needs.
-
-Establish clear guidelines and expectations for remote work.
-
-Encourage regular virtual team interactions to maintain engagement.`,
-
-    2: `## Code Review Results
-
-**Issues Found:** 2 minor, 0 critical
-
-**Recommendations:**
-• Line 23: Consider using const instead of let
-• Function complexity could be reduced in utils.js
-• Overall code quality: Excellent
-
-**Security Check:** ✅ Passed
-**Performance Impact:** Low
-**Maintainability Score:** 8.5/10
-
-Your code for "${query}" shows good practices with room for minor optimizations.`,
-
-    3: `## Research Report
-
-**Sources Analyzed:** 15 academic papers, 8 industry reports
-
-**Key Findings:**
-• Current trends align with your query about "${query}"
-• 73% of experts agree on primary methodology
-• Emerging patterns detected in recent publications
-
-**Citations:**
-1. Smith et al. (2024) - Primary research methodology
-2. Johnson Research Group (2024) - Industry applications
-3. Tech Analysis Quarterly (2024) - Future implications
-
-**Confidence Level:** High (87%)`,
-
-    4: `## Creative Content Generated
-
-**Content Type:** Blog post / Marketing copy
-**Word Count:** 847 words
-**Tone:** Professional, engaging
-
-**Generated Content:**
-Based on "${query}", I've crafted compelling content that balances creativity with strategic messaging. The piece includes:
-
-• Attention-grabbing headline
-• Structured narrative flow
-• Call-to-action optimization
-• SEO-friendly keywords integrated
-
-**Readability Score:** 8.2/10
-**Engagement Potential:** High`,
-
-    5: `## Data Analysis Complete
-
-**Dataset Processing:**
-• 12,847 data points analyzed
-• 5 key patterns identified
-• Statistical significance confirmed
-
-**Visualizations Generated:**
-📊 Trend analysis chart
-📈 Performance metrics dashboard  
-🎯 Correlation matrix
-
-**Key Insights:**
-Your query "${query}" revealed significant correlations with 94% confidence interval. Peak performance indicators show consistent growth patterns.
-
-**Recommendations:** Implementation of findings could improve metrics by 23-31%`,
-
-    6: `## Translation Complete
-
-**Languages:** Auto-detected → Target language
-**Text Length:** 342 words processed
-**Cultural Context:** Preserved
-
-**Translation Quality:**
-• Accuracy: 98.7%
-• Cultural nuance: Maintained
-• Technical terms: Verified
-• Localization: Applied
-
-For "${query}" - the translation maintains original meaning while adapting to cultural context. Regional variations have been considered for optimal comprehension.
-
-**Confidence Score:** 9.4/10`
-  };
-  
-  return responses[agent.id] || `## Request Processed\n\nYour request "${query}" has been processed successfully by ${agent.name}. The analysis is complete and results are ready for your review.`;
-};
 
 export default function AgentBrowseSection() {
   const [selectedAgent, setSelectedAgent] = useState(null);
@@ -218,7 +107,119 @@ export default function AgentBrowseSection() {
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [mockProcessingTimer, setMockProcessingTimer] = useState(null); 
   
- 
+  const getMockResponse = (agent:any, query:any) => {
+    const responses = {
+      1: `Document Summary
+  Title: The Benefits of Remote Work
+  
+  Summary:
+  This document explores how remote work has transformed modern workplaces by offering flexibility, increased productivity, and cost savings. It outlines key advantages such as improved work-life balance, access to a global talent pool, and reduced commuting stress. The document also addresses common challenges, including communication barriers and the need for robust technology infrastructure. Finally, it recommends best practices for companies to implement effective remote work policies.
+  
+  Key Insights:
+  
+  Remote work boosts employee satisfaction and retention.
+  
+  Companies save on office space and operational costs.
+  
+  Technology tools are critical for collaboration and security.
+  
+  Clear communication and trust-building are essential for remote teams.
+  
+  Recommendations:
+  
+  Invest in reliable communication platforms.
+  
+  Provide flexible schedules to accommodate diverse employee needs.
+  
+  Establish clear guidelines and expectations for remote work.
+  
+  Encourage regular virtual team interactions to maintain engagement.`,
+  
+      2: `## Code Review Results
+  
+  **Issues Found:** 2 minor, 0 critical
+  
+  **Recommendations:**
+  • Line 23: Consider using const instead of let
+  • Function complexity could be reduced in utils.js
+  • Overall code quality: Excellent
+  
+  **Security Check:** ✅ Passed
+  **Performance Impact:** Low
+  **Maintainability Score:** 8.5/10
+  
+  Your code for "${query}" shows good practices with room for minor optimizations.`,
+  
+      3: `## Research Report
+  
+  **Sources Analyzed:** 15 academic papers, 8 industry reports
+  
+  **Key Findings:**
+  • Current trends align with your query about "${query}"
+  • 73% of experts agree on primary methodology
+  • Emerging patterns detected in recent publications
+  
+  **Citations:**
+  1. Smith et al. (2024) - Primary research methodology
+  2. Johnson Research Group (2024) - Industry applications
+  3. Tech Analysis Quarterly (2024) - Future implications
+  
+  **Confidence Level:** High (87%)`,
+  
+      4: `## Creative Content Generated
+  
+  **Content Type:** Blog post / Marketing copy
+  **Word Count:** 847 words
+  **Tone:** Professional, engaging
+  
+  **Generated Content:**
+  Based on "${query}", I've crafted compelling content that balances creativity with strategic messaging. The piece includes:
+  
+  • Attention-grabbing headline
+  • Structured narrative flow
+  • Call-to-action optimization
+  • SEO-friendly keywords integrated
+  
+  **Readability Score:** 8.2/10
+  **Engagement Potential:** High`,
+  
+      5: `## Data Analysis Complete
+  
+  **Dataset Processing:**
+  • 12,847 data points analyzed
+  • 5 key patterns identified
+  • Statistical significance confirmed
+  
+  **Visualizations Generated:**
+  📊 Trend analysis chart
+  📈 Performance metrics dashboard  
+  🎯 Correlation matrix
+  
+  **Key Insights:**
+  Your query "${query}" revealed significant correlations with 94% confidence interval. Peak performance indicators show consistent growth patterns.
+  
+  **Recommendations:** Implementation of findings could improve metrics by 23-31%`,
+  
+      6: `## Translation Complete
+  
+  **Languages:** Auto-detected → Target language
+  **Text Length:** 342 words processed
+  **Cultural Context:** Preserved
+  
+  **Translation Quality:**
+  • Accuracy: 98.7%
+  • Cultural nuance: Maintained
+  • Technical terms: Verified
+  • Localization: Applied
+  
+  For "${query}" - the translation maintains original meaning while adapting to cultural context. Regional variations have been considered for optimal comprehension.
+  
+  **Confidence Score:** 9.4/10`
+    };
+    
+    return responses[agent.id] || `## Request Processed\n\nYour request "${query}" has been processed successfully by ${agent.name}. The analysis is complete and results are ready for your review.`;
+  };
+  
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(event.target.files || []);
     setUploadedFiles(prev => [...prev, ...files]);
