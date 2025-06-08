@@ -1,4 +1,4 @@
-import { AgentRequest, AgentResponse } from "../../../types/api.js";
+import { AgentRequest, AgentResponse } from "../../../types/api";
 import { NextResponse } from "next/server";
 import { createAgent } from "./create-agent";
 /**
