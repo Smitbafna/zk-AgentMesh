@@ -12,7 +12,8 @@ AgentMesh is a decentralized marketplace that enables developers to deploy and m
 
 # Architecture Diagram
 
-![Screenshot from 2025-06-08 18-42-26](https://github.com/user-attachments/assets/e3ed57c4-297a-4148-9174-a711936b44aa)
+![Screenshot from 2025-06-09 12-52-26](https://github.com/user-attachments/assets/1e41c6f0-9067-4374-85c4-c33566667c16)
+
 
 ---
 
