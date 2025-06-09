@@ -256,7 +256,7 @@ Use [`x402pay`](https://github.com/coinbase/x402) to monetize every query or act
 
 ##  2. Revenue Splitting (via CDP Wallet)
 
-Every transaction triggers automatic revenue routing via [CDP Wallet]([https://cdpwallet.xyz](https://docs.cdp.coinbase.com/cdp-apis/docs/welcome), with programmable splits:
+Every transaction triggers automatic revenue routing via [CDP Wallet](https://docs.cdp.coinbase.com/cdp-apis/docs/welcome), with programmable splits:
 
 | Recipient                | Share |
 |--------------------------|-------|
