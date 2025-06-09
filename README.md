@@ -215,4 +215,104 @@ Developers want direct income from their AI work — not ads or VC funding.
 - Infrastructure that supports micro-SaaS and indie developers
 
 ---
+#  Revenue Models for AgentMesh
+
+AgentMesh enables modular, autonomous AI agents to operate sustainably through programmable payments and decentralized revenue distribution. This document outlines the monetization strategies and composable economic flows that power the AgentMesh ecosystem.
+
+---
+
+## 1. Pay-Per-Use (Core Mechanism)
+
+Use [`x402pay`](https://x402.dev) to monetize every query or action.
+
+### Flow
+- User signs EIP-3009 transfer
+- x402pay validates the payment
+- Agent executes the task and returns the result
+
+###  Example Pricing
+| Task | Cost |
+|------|------|
+| GPT Agent Query | $0.02 |
+| Plugin Execution | $0.01 |
+| Image Generation | $0.05 |
+| PDF Export | $0.05 |
+
+---
+
+##  2. Revenue Splitting (via CDP Wallet)
+
+Every transaction triggers automatic revenue routing via [CDP Wallet](https://cdpwallet.xyz), with programmable splits:
+
+| Recipient                | Share |
+|--------------------------|-------|
+| Agent/Plugin Developer   | 60%   |
+| Host (e.g., Akash)       | 20%   |
+| AgentMesh Treasury       | 10%   |
+| Referral / Affiliate     | 10%   |
+
+Split logic is defined once per module and enforced on-chain.
+
+---
+
+##  3. Module Developer Royalties
+
+AgentMesh supports a **plug-and-earn** model:
+
+- Third-party developers can publish:
+  - Autonomous agents
+  - Plugins/tools
+  - Composable workflows
+
+- When used, the system automatically routes a share of payments to the developer’s wallet via CDP Wallet.
+
+>  This builds a financial incentive to contribute reusable modules.
+
+---
+
+## 4. Self-Funding Agents & Treasuries
+
+Agents (or collectives of agents) can:
+
+- Manage their own CDP Wallet treasuries
+- Pay for compute or infrastructure
+- Disburse funds to contributors
+- Create bounties or sponsor upgrades
+
+> This enables **DAO-like agents** with autonomous economics.
+
+---
+
+##  5. Freemium + Subscriptions
+
+Support multiple pricing tiers:
+
+- **Free Tier** – Limited daily usage (e.g., 10 requests/day)
+- **Pay-per-use** – Beyond free limit, via x402pay
+- **Subscription** – Fixed monthly fee debited via CDP Wallet
+
+---
+
+##  6. Affiliate & Referral Economy
+
+Reward community members for distribution:
+
+- Anyone who shares/embeds agents earns a referral fee (5–10%)
+- Logic is enforced through CDP Wallet split trees
+- Perfect for creators, curators, and marketplace integrators
+
+>  Viral growth meets on-chain revenue attribution.
+
+---
+
+##  Composability Benefits
+
+- Reusable split trees and templates
+- One-click monetization for new agents or workflows
+-  Incentive-aligned ecosystem of builders, hosts, and curators
+
+---
+
+AgentMesh isn’t just an AI runtime — it’s an economy of autonomous, monetizable software agents.
+
 
