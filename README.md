@@ -178,7 +178,7 @@ Monetizing LLMs requires managing complex infrastructure (billing, auth, hosting
 - **Akash** for hosting  
 - **Amazon Bedrock** for shared AI models
 
----
+
 
 ## 2. Revenue Sharing is Complicated
 
@@ -190,7 +190,7 @@ Rev-shares in Web2 require custom contracts, compliance, and centralized systems
 - Programmable, transparent payment routing  
 - No KYC or traditional banking infrastructure
 
----
+
 
 ## 3. Hosting Costs and Compute Risk
 
@@ -202,7 +202,7 @@ High inference costs and unpredictable demand make scaling risky.
 - Payments routed to compute providers  
 - Cost recovery baked into per-call pricing
 
----
+
 
 ## 4. Aligns with Developer Monetization Trends
 
