@@ -315,21 +315,6 @@ Reward community members for distribution:
 
 AgentMesh isn’t just an AI runtime — it’s an economy of autonomous, monetizable software agents.
 
---- 
-# Future Enhancements: Considerations for Scaling
-
-As AgentMesh grows into a modular and decentralized economy for AI agents, the following optional layers can be added to enhance scale, trust, and monetization flexibility:
-
-|  Layer | Description |
-|---------|-------------|
-|  **Agent Performance Index** | A transparent dashboard to rank agents by metrics like revenue generated, task success rate, and user satisfaction. Encourages quality and competition. |
-|  **Usage Analytics API** | Allows developers and teams to track usage statistics, fine-tune pricing strategies, and understand customer behavior. Helps in optimizing performance and revenue. |
-|  **Escrowed Compute Agents** | Introduce prepaid workflows: Users deposit funds into a CDP Wallet, and agents deduct per interaction or compute cycle. Ensures trust, avoids overcharging, and enables metered compute. |
-
----
-
-These components can be layered in over time to improve ecosystem efficiency, introduce trustless economic guarantees, and unlock new business models.
-
 ---
 
 #  Demo Screens
@@ -435,6 +420,20 @@ A modular, scalable architecture leveraging decentralized compute, crypto-native
 
 
 
+--- 
+# Future Enhancements: Considerations for Scaling
+
+As AgentMesh grows into a modular and decentralized economy for AI agents, the following optional layers can be added to enhance scale, trust, and monetization flexibility:
+
+|  Layer | Description |
+|---------|-------------|
+|  **Agent Performance Index** | A transparent dashboard to rank agents by metrics like revenue generated, task success rate, and user satisfaction. Encourages quality and competition. |
+|  **Usage Analytics API** | Allows developers and teams to track usage statistics, fine-tune pricing strategies, and understand customer behavior. Helps in optimizing performance and revenue. |
+|  **Escrowed Compute Agents** | Introduce prepaid workflows: Users deposit funds into a CDP Wallet, and agents deduct per interaction or compute cycle. Ensures trust, avoids overcharging, and enables metered compute. |
+
+---
+
+These components can be layered in over time to improve ecosystem efficiency, introduce trustless economic guarantees, and unlock new business models.
 
 ---
 
