@@ -108,8 +108,111 @@ It offers a marketplace that supports diverse AI agents from GPT wrappers to dom
 
 The crypto-native payment and revenue sharing infrastructure positions AgentMesh at the forefront of new decentralized financial models for AI.
 
+---
+# Creativity
 
-
-By integrating these capabilities, AgentMesh transforms the monetization landscape for AI agents, empowering developers with a scalable, efficient, and financially transparent platform that supports sustainable growth in the AI economy.
+AgentMesh introduces a novel model for AI agent monetization by enabling developers to launch their own LLM-based agents on a decentralized platform. Rather than building a single service, developers contribute to a composable ecosystem where services can be independently monetized, interconnected, and incentivized.
 
 ---
+
+## 1. Decentralized Agent Marketplace
+
+AgentMesh is a marketplace where anyone can deploy monetized LLM agents. It transforms the traditional SaaS model into a decentralized, crypto-native service platform:
+
+- Supports a network of agent developers  
+- Offers shared infrastructure and discoverability  
+- Enables composable services, not siloed apps  
+
+---
+
+## 2. Composable Monetization Logic
+
+With **CDP Wallet**, AgentMesh enables flexible and programmable revenue sharing:
+
+- Define per-agent revenue splits (e.g., 70/20/10 or 50/50)  
+- Avoids deploying new contracts for each update  
+- Payments are routed according to dynamic, on-chain logic  
+
+This makes monetization as composable as code and supports collaborations, affiliate payouts, and infrastructure incentives.
+
+---
+
+## 3. Pay-Per-Use Agents with x402pay
+
+**x402pay** introduces per-interaction billing, simplifying access and monetization:
+
+- No logins, subscriptions, or centralized payment systems  
+- Users pay directly for each request  
+- Developers focus solely on model logic, not billing infrastructure  
+
+This redefines SaaS as a true "API economy," where AI becomes a pay-as-you-go utility.
+
+---
+
+## 4. Decentralized Compute with Akash (Optional)
+
+**Akash** provides permissionless compute as a hosting layer:
+
+- Reduces dependence on centralized cloud providers  
+- Lowers hosting costs and risk  
+- Enables compute-based revenue sharing  
+
+This brings true infrastructure decentralization to AI agent deployment.
+
+---
+
+# Real-World Relevance
+
+AgentMesh directly addresses the practical and financial challenges faced by independent AI developers by offering infrastructure, billing, and monetization as composable building blocks.
+
+---
+
+## 1. No Simple Monetization for LLM APIs
+
+**The Challenge:**  
+Monetizing LLMs requires managing complex infrastructure (billing, auth, hosting).
+
+**AgentMesh Solves It With:**  
+- **x402pay** for billing  
+- **CDP Wallet** for payouts  
+- **Akash** for hosting  
+- **Amazon Bedrock** for shared AI models
+
+---
+
+## 2. Revenue Sharing is Complicated
+
+**The Challenge:**  
+Rev-shares in Web2 require custom contracts, compliance, and centralized systems.
+
+**AgentMesh Solves It With:**  
+- Instant rev-share setup per agent  
+- Programmable, transparent payment routing  
+- No KYC or traditional banking infrastructure
+
+---
+
+## 3. Hosting Costs and Compute Risk
+
+**The Challenge:**  
+High inference costs and unpredictable demand make scaling risky.
+
+**AgentMesh Solves It With:**  
+- On-demand hosting via Akash  
+- Payments routed to compute providers  
+- Cost recovery baked into per-call pricing
+
+---
+
+## 4. Aligns with Developer Monetization Trends
+
+**The Challenge:**  
+Developers want direct income from their AI work — not ads or VC funding.
+
+**AgentMesh Solves It With:**  
+- Agent-level ownership and monetization  
+- A marketplace of niche, sustainable AI services  
+- Infrastructure that supports micro-SaaS and indie developers
+
+---
+
