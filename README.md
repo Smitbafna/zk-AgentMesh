@@ -2,6 +2,19 @@
 
 ![Screenshot from 2025-06-08 18-42-26](https://github.com/user-attachments/assets/e3ed57c4-297a-4148-9174-a711936b44aa)
 
+#  Table of Contents
+
+1. [Introduction](#introduction)
+2. [Architecture](#architecture-diagram)
+3. [Problem Statement](#problem-statement)
+4. [Solution Statement](#solution-statement)
+5. [Creativity](#creativity)
+6. [Real World Relevance](#real-world-relevance)
+7. [Revenue Models for AgentMesh](#revenue-models-for-agentmesh)
+8. [Demo Screens](#demo-screens)
+9. [Tech Stack for AgentMesh](#tech-stack-for-agentmesh)
+10. [Future Enhancements: Considerations for Scaling](#future-enhancements-considerations-for-scaling)
+
 ---
 
 # Introduction
