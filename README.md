@@ -322,7 +322,6 @@ As AgentMesh grows into a modular and decentralized economy for AI agents, the f
 
 |  Layer | Description |
 |---------|-------------|
-|  **Native Token (optional)** | Enables gasless payments, staking-based plugin curation, and access gating for premium agents or features. Useful for incentivizing long-term usage and governance. |
 |  **Agent Performance Index** | A transparent dashboard to rank agents by metrics like revenue generated, task success rate, and user satisfaction. Encourages quality and competition. |
 |  **Usage Analytics API** | Allows developers and teams to track usage statistics, fine-tune pricing strategies, and understand customer behavior. Helps in optimizing performance and revenue. |
 |  **Escrowed Compute Agents** | Introduce prepaid workflows: Users deposit funds into a CDP Wallet, and agents deduct per interaction or compute cycle. Ensures trust, avoids overcharging, and enables metered compute. |
