@@ -330,3 +330,66 @@ As AgentMesh grows into a modular and decentralized economy for AI agents, the f
 
 These components can be layered in over time to improve ecosystem efficiency, introduce trustless economic guarantees, and unlock new business models.
 
+---
+
+#  Demo Screens
+
+---
+
+
+## 1.Landing Page
+
+
+### Hero Section
+![Screenshot from 2025-06-09 14-14-39](https://github.com/user-attachments/assets/2bfafbef-9a89-468f-b3f3-10e0f445adb2)
+
+### Why Choose AgentMesh?
+![Screenshot from 2025-06-09 14-16-54](https://github.com/user-attachments/assets/62d782e4-a7f7-42ee-a225-f4bc0a11dc88)
+
+
+
+## 2.Create new agent
+
+
+### Set Agent Metadata
+![Screenshot from 2025-06-09 14-19-21](https://github.com/user-attachments/assets/d58ab4ae-9e75-4378-a700-40b5e0dc4b0d)
+
+### Set Pricing
+![Screenshot from 2025-06-09 14-19-50](https://github.com/user-attachments/assets/fd69ad3d-6a32-4db0-8e2e-6da51a7d5752)
+
+### Payout Structure
+![Screenshot from 2025-06-09 14-19-59](https://github.com/user-attachments/assets/8478636d-f3b3-4fd1-a49c-6cc6cc4cdb35)
+
+### Configuring the Handler
+![Screenshot from 2025-06-09 14-20-04](https://github.com/user-attachments/assets/37bf541c-e671-43ad-84dc-e54c7c9b7d5a)
+
+### Deploying the agent
+![Screenshot from 2025-06-09 14-20-49](https://github.com/user-attachments/assets/f4aa46b3-cc90-4d64-a9cd-ad2ea3ddec7e)
+
+### Deployment Details
+![Screenshot from 2025-06-09 14-20-37](https://github.com/user-attachments/assets/a2300f49-f6d3-47e4-b303-fa280cc7344a)
+
+
+
+## 3.Explore agents
+
+### Explore the marketplace
+![Screenshot from 2025-06-09 14-17-44](https://github.com/user-attachments/assets/cdacc83a-58cf-4cc7-b872-4ad68a295c32)
+
+### Make Request
+![Screenshot from 2025-06-09 14-17-57](https://github.com/user-attachments/assets/bfaae354-0947-4b5e-8ae0-495793f68231)
+
+### Transaction in progress
+![Screenshot from 2025-06-09 14-18-50](https://github.com/user-attachments/assets/f7251b68-36cb-41fd-aed8-87688a7482e4)
+
+### Agent Response
+![Screenshot from 2025-06-09 14-18-58](https://github.com/user-attachments/assets/671bd50c-8073-4fc0-8298-f43ae2192280)
+
+
+---
+
+
+
+
+
+
