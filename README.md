@@ -113,7 +113,7 @@ The crypto-native payment and revenue sharing infrastructure positions AgentMesh
 
 AgentMesh introduces a novel model for AI agent monetization by enabling developers to launch their own LLM-based agents on a decentralized platform. Rather than building a single service, developers contribute to a composable ecosystem where services can be independently monetized, interconnected, and incentivized.
 
----
+
 
 ## 1. Decentralized Agent Marketplace
 
@@ -123,7 +123,7 @@ AgentMesh is a marketplace where anyone can deploy monetized LLM agents. It tran
 - Offers shared infrastructure and discoverability  
 - Enables composable services, not siloed apps  
 
----
+
 
 ## 2. Composable Monetization Logic
 
@@ -135,7 +135,7 @@ With **CDP Wallet**, AgentMesh enables flexible and programmable revenue sharing
 
 This makes monetization as composable as code and supports collaborations, affiliate payouts, and infrastructure incentives.
 
----
+
 
 ## 3. Pay-Per-Use Agents with x402pay
 
@@ -147,7 +147,7 @@ This makes monetization as composable as code and supports collaborations, affil
 
 This redefines SaaS as a true "API economy," where AI becomes a pay-as-you-go utility.
 
----
+
 
 ## 4. Decentralized Compute with Akash (Optional)
 
