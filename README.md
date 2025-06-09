@@ -390,6 +390,55 @@ These components can be layered in over time to improve ecosystem efficiency, in
 
 
 
+#  Tech Stack for AgentMesh
+
+
+A modular, scalable architecture leveraging decentralized compute, crypto-native payments, and AI services.
+
+##  Core Components
+
+| Layer            | Stack                                       | Purpose                                       |
+|------------------|---------------------------------------------|-----------------------------------------------|
+|  **Frontend**  | **Next.js** (App Router)                    | User interface for interacting with agents    |
+|  **Monorepo**  | TurboRepo / Nx                              | Unified management for frontend, API, agents |
+|  **UI Design** | TailwindCSS + shadcn/ui                    | Modern, clean component design                |
+|  **API Layer** | Node.js  (within monorepo)         | Middleware between frontend and services      |
+
+##  Deployment & Hosting
+
+| Layer             | Stack           | Purpose                          |
+|-------------------|-----------------|----------------------------------|
+| **Frontend**   | **Vercel**      | Global CDN, serverless hosting   |
+|  **Backend API**| Akash | API execution and LLM proxying   |
+|  **CI/CD**      | GitHub Actions  | Automated builds and deployments |
+
+##  Payments & Wallets
+
+| Layer                     | Stack/Protocol      | Purpose                                      |
+|---------------------------|---------------------|----------------------------------------------|
+| **Monetization**       | **x402pay**         | Pay-per-use requests (EIP-3009-based)        |
+|  **Wallet Management**  | **CDP Wallet API**  | Routing funds, revenue splits, payouts       |
+|  **EVM Support**        | EIP-3009  | On-chain authorization for token transfers   |
+
+##  AI & Agents
+
+| Layer                   | Stack/Provider         | Purpose                                         |
+|-------------------------|------------------------|------------------------------------------------|
+|  **Foundation Models**| Amazon Bedrock (Nova)  | Large Language Models powering agents          |
+|  **Plugin System**    | Modular, Plug-and-Earn | Extensible tooling with affiliate royalties     |
+
+## Compute & Hosting
+
+| Layer                | Stack/Provider  | Purpose                       |
+|----------------------|-----------------|-------------------------------|
+| **Compute Backend**| **Akash Network** | Decentralized, cost-effective compute |
+
+
+
+
+---
+
+
 
 
 
