@@ -238,7 +238,7 @@ Use [`x402pay`](https://x402.dev) to monetize every query or action.
 | Image Generation | $0.05 |
 | PDF Export | $0.05 |
 
----
+
 
 ##  2. Revenue Splitting (via CDP Wallet)
 
@@ -253,7 +253,7 @@ Every transaction triggers automatic revenue routing via [CDP Wallet](https://cd
 
 Split logic is defined once per module and enforced on-chain.
 
----
+
 
 ##  3. Module Developer Royalties
 
@@ -268,7 +268,7 @@ AgentMesh supports a **plug-and-earn** model:
 
 >  This builds a financial incentive to contribute reusable modules.
 
----
+
 
 ## 4. Self-Funding Agents & Treasuries
 
@@ -281,7 +281,7 @@ Agents (or collectives of agents) can:
 
 > This enables **DAO-like agents** with autonomous economics.
 
----
+
 
 ##  5. Freemium + Subscriptions
 
@@ -291,7 +291,7 @@ Support multiple pricing tiers:
 - **Pay-per-use** – Beyond free limit, via x402pay
 - **Subscription** – Fixed monthly fee debited via CDP Wallet
 
----
+
 
 ##  6. Affiliate & Referral Economy
 
@@ -311,10 +311,10 @@ Reward community members for distribution:
 - One-click monetization for new agents or workflows
 -  Incentive-aligned ecosystem of builders, hosts, and curators
 
----
 
 AgentMesh isn’t just an AI runtime — it’s an economy of autonomous, monetizable software agents.
 
+--- 
 # Future Enhancements: Considerations for Scaling
 
 As AgentMesh grows into a modular and decentralized economy for AI agents, the following optional layers can be added to enhance scale, trust, and monetization flexibility:
