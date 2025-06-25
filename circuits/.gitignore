@@ -1,0 +1,32 @@
+# Circom artifacts
+*.r1cs
+*.sym
+*.wasm
+*.zkey
+*.wtns
+*.ptau
+*.json
+
+# Generated JS and C++ folders
+ZKAgentVerificationOrchestrator_js/
+ZKAgentVerificationOrchestrator_cpp/
+
+# Node modules and lockfile
+node_modules/
+package-lock.json
+
+# Build/output folders (if used later)
+build/
+output/
+cache/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS junk files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
