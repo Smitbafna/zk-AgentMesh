@@ -19,7 +19,7 @@
 
 # Introduction
 
-AgentMesh is a decentralized marketplace that enables developers to deploy and monetize AI agents through a seamless pay-per-use model. By automating revenue sharing and removing the need to manage backend infrastructure or billing, AgentMesh allows creators to focus entirely on building and improving their agents. This platform fosters a scalable and efficient ecosystem where AI services can thrive as sustainable, income-generating solutions.
+zk-AgentMesh is a decentralized marketplace that enables developers to deploy and monetize AI agents with cryptographic quality guarantees through a seamless pay-per-use model. By combining automated revenue sharing with zero-knowledge proofs that verify agent performance, ethics, and compliance, ZK-AgentMesh removes both infrastructure complexity and trust barriers. This platform creates a mathematically verifiable ecosystem where AI services operate with guaranteed quality standards, enabling sustainable income generation backed by cryptographic certainty rather than user reviews.
 
 ---
 
