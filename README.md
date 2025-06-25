@@ -1,4 +1,4 @@
-# AgentMesh: Marketplace for Monetized AI Agents
+# ZK-AgentMesh: Marketplace for Monetized AI Agents
 
 ![Screenshot from 2025-06-08 18-42-26](https://github.com/user-attachments/assets/e3ed57c4-297a-4148-9174-a711936b44aa)
 
@@ -10,16 +10,16 @@
 4. [Solution Statement](#solution-statement)
 5. [Creativity](#creativity)
 6. [Real World Relevance](#real-world-relevance)
-7. [Revenue Models for AgentMesh](#revenue-models-for-agentmesh)
+7. [Revenue Models for ZK-AgentMesh](#revenue-models-for-ZK-AgentMesh)
 8. [Demo Screens](#demo-screens)
-9. [Tech Stack for AgentMesh](#tech-stack-for-agentmesh)
+9. [Tech Stack for ZK-AgentMesh](#tech-stack-for-ZK-AgentMesh)
 10. [Future Enhancements: Considerations for Scaling](#future-enhancements-considerations-for-scaling)
 
 ---
 
 # Introduction
 
-zk-AgentMesh is a decentralized marketplace that enables developers to deploy and monetize AI agents with cryptographic quality guarantees through a seamless pay-per-use model. By combining automated revenue sharing with zero-knowledge proofs that verify agent performance, ethics, and compliance, ZK-AgentMesh removes both infrastructure complexity and trust barriers. This platform creates a mathematically verifiable ecosystem where AI services operate with guaranteed quality standards, enabling sustainable income generation backed by cryptographic certainty rather than user reviews.
+ZK-AgentMesh is a decentralized marketplace that enables developers to deploy and monetize AI agents with cryptographic quality guarantees through a seamless pay-per-use model. By combining automated revenue sharing with zero-knowledge proofs that verify agent performance, ethics, and compliance, ZK-AgentMesh removes both infrastructure complexity and trust barriers. This platform creates a mathematically verifiable ecosystem where AI services operate with guaranteed quality standards, enabling sustainable income generation backed by cryptographic certainty rather than user reviews.
 
 ---
 
@@ -79,7 +79,7 @@ AI developers face significant challenges monetizing large language model agents
 
 # Solution Statement
 
-AgentMesh provides a comprehensive solution to the challenges faced by AI developers by offering a decentralized marketplace designed specifically for monetized AI agents. It simplifies the process of deploying, hosting, and monetizing AI agents through an automated, plug-and-play platform. By handling complex billing, revenue sharing, and infrastructure management behind the scenes, AgentMesh empowers developers to focus on building innovative AI solutions while earning sustainable income.
+ZK-AgentMesh provides a comprehensive solution to the challenges faced by AI developers by offering a decentralized marketplace designed specifically for monetized AI agents. It simplifies the process of deploying, hosting, and monetizing AI agents through an automated, plug-and-play platform. By handling complex billing, revenue sharing, and infrastructure management behind the scenes, ZK-AgentMesh empowers developers to focus on building innovative AI solutions while earning sustainable income.
 
 ---
 
@@ -120,204 +120,364 @@ It fosters the growth of micro-AI services and API-first business models by enab
 
 It offers a marketplace that supports diverse AI agents from GPT wrappers to domain-specific copilots creating a vibrant ecosystem where developers can monetize their work sustainably.
 
-The crypto-native payment and revenue sharing infrastructure positions AgentMesh at the forefront of new decentralized financial models for AI.
+The crypto-native payment and revenue sharing infrastructure positions ZK-AgentMesh at the forefront of new decentralized financial models for AI.
 
 ---
 # Creativity
 
-AgentMesh introduces a novel model for AI agent monetization by enabling developers to launch their own LLM-based agents on a decentralized platform. Rather than building a single service, developers contribute to a composable ecosystem where services can be independently monetized, interconnected, and incentivized.
+ZK-AgentMesh introduces a novel model for AI agent monetization by enabling developers to launch their own LLM-based agents on a decentralized, trustless platform. Rather than building siloed services, developers contribute to a composable ecosystem where agents are independently monetized, interoperable, and cryptographically verified.
+
+With zero-knowledge proofs, ZK-AgentMesh ensures that each agent’s training, ethics, and compliance claims are provably true without revealing sensitive data.
 
 
 
-## 1. Decentralized Agent Marketplace
+Got it. Here's a refined **Creativity section** for your technical documentation, treating **ZK-AgentMesh** as the **first and primary platform**, with no mention of an "older" ZK-AgentMesh. It's framed to feel like a first principles-driven, technically visionary system.
 
-AgentMesh is a marketplace where anyone can deploy monetized LLM agents. It transforms the traditional SaaS model into a decentralized, crypto-native service platform:
+---
 
-- Supports a network of agent developers  
-- Offers shared infrastructure and discoverability  
-- Enables composable services, not siloed apps  
+#  Creativity
 
+**ZK-AgentMesh** is a novel platform for launching, verifying, and monetizing autonomous AI agents in a decentralized, trustless way. It reimagines how agents are built, deployed, and paid by introducing **cryptographic verification** into every step of the AI lifecycle.
+It’s a **provably trustworthy ecosystem** where agents earn based on what they can **prove**, not just what they claim.
 
-
-## 2. Composable Monetization Logic
-
-With **CDP Wallet**, AgentMesh enables flexible and programmable revenue sharing:
-
-- Define per-agent revenue splits (e.g., 70/20/10 or 50/50)  
-- Avoids deploying new contracts for each update  
-- Payments are routed according to dynamic, on-chain logic  
-
-This makes monetization as composable as code and supports collaborations, affiliate payouts, and infrastructure incentives.
+In this model, AI is no longer a black box. It’s a **provable protocol** for intelligence, where developers stake on their claims, generate proofs during training, and earn through verified performance.
 
 
+---
 
-## 3. Pay-Per-Use Agents with x402pay
+## 1. ZK-Verified Intelligence Marketplace
 
-**x402pay** introduces per-interaction billing, simplifying access and monetization:
+ZK-AgentMesh is a marketplace of **cryptographically audited agents**, not unverifiable models:
 
-- No logins, subscriptions, or centralized payment systems  
-- Users pay directly for each request  
-- Developers focus solely on model logic, not billing infrastructure  
+* Developers deploy agents with **ZK-proven guarantees** (e.g., data quality, ethics, compliance)
+* Users interact with agents whose claims are **provably true**, not trusted by reputation
+* Every agent carries a verifiable identity, proof hash, and compliance badge on-chain
 
-This redefines SaaS as a true "API economy," where AI becomes a pay-as-you-go utility.
+> Agents are selected not by hype, but by **math-backed trust**.
+
+---
+
+## 2. Modular Revenue Flows with CDP Wallet
+
+Using the **CDP Wallet**, monetization becomes **programmable and permissionless**:
+
+* Revenue splits between trainers, verifiers, and infra are defined per agent
+* No custom contracts needed—flows are managed through on-chain logic
+* Economic incentives drive **quality training and proof generation**
+
+This enables a new class of **collaborative, multi-party AI economies**.
+
+---
+
+## 3. Proof-Gated Payments with x402pay
+
+**x402pay** brings **granular, proof-verified monetization**:
+
+* Users pay per request, only if agent capabilities are **ZK-verified**
+* Agents can charge more for higher-quality guarantees
+* Developers don’t manage billing—**payments flow trustlessly**
+
+> Every interaction becomes a **provably fair microtransaction**.
+
+---
+
+## 4. Verifiable Training on Akash
+
+Training and inference run on **decentralized compute**, powered by **Akash**:
+
+* Developers define their training standards → stake tokens → train → generate proofs
+* Containers run ZK circuits inside trusted enclaves (e.g., SGX), proving compliance without revealing data
+* Proofs are submitted to smart contracts for public verification
+
+> This turns AI training into a **transparent, auditable supply chain**.
+
+---
+
+## 5. Proof Composability
+
+The most powerful feature: **agents can compose proofs from other agents**:
+
+* A research agent can inherit the verified logic of a data-cleaning agent
+* A compliance bot can enforce proof checks across a workflow
+* Chains of agents can form **provably safe, bias-free, or domain-specific pipelines**
+
+> ZK-AgentMesh becomes a **shared proof layer** for autonomous computation.
+
+---
+
+##  The Creative Leap
+
+ZK-AgentMesh is not just a better marketplace it’s a **new paradigm** where AI logic is:
+
+* **Decentralized** in execution (Akash)
+* **Verifiable** in training (ZK circuits)
+* **Composable** in logic (proof chaining)
+* **Monetizable** in micro-units (x402pay)
+* **Trustless** by design (on-chain registry)
+
+A platform where AI agents are **built like smart contracts**, **verified like ZK rollups**, and **paid like DeFi apps** with provable guarantees every step of the way.
+
+---
 
 
 
-## 4. Decentralized Compute with Akash (Optional)
 
-**Akash** provides permissionless compute as a hosting layer:
 
-- Reduces dependence on centralized cloud providers  
-- Lowers hosting costs and risk  
-- Enables compute-based revenue sharing  
-
-This brings true infrastructure decentralization to AI agent deployment.
+Here’s a powerful **“Real-World Relevance”** section tailored to ZK-AgentMesh — showcasing how the platform solves pressing problems in AI, compliance, and decentralized infrastructure using verifiable technology:
 
 ---
 
 # Real-World Relevance
 
-AgentMesh directly addresses the practical and financial challenges faced by independent AI developers by offering infrastructure, billing, and monetization as composable building blocks.
+**ZK-AgentMesh** isn’t just technically novel — it solves **real, urgent challenges** in today’s AI landscape by introducing cryptographic accountability, decentralized training, and transparent monetization.
 
 ---
 
-## 1. No Simple Monetization for LLM APIs
+## 1. Solving the Trust Crisis in AI
 
-**The Challenge:**  
-Monetizing LLMs requires managing complex infrastructure (billing, auth, hosting).
+Today’s AI systems make **unverifiable claims** about safety, fairness, and data provenance. Enterprises and governments are increasingly demanding:
 
-**AgentMesh Solves It With:**  
-- **x402pay** for billing  
-- **CDP Wallet** for payouts  
-- **Akash** for hosting  
-- **Amazon Bedrock** for shared AI models
+* Proof of ethical training (e.g., bias-free, non-toxic datasets)
+* Compliance with regulations (e.g., **GDPR**, **HIPAA**, **CCPA**)
+* Transparent AI supply chains
 
+**ZK-AgentMesh makes this verifiable.**
+Agents stake tokens on their claims and produce **zero-knowledge proofs** during training — ensuring that even black-box models can be **trusted without revealing sensitive details**.
 
-
-## 2. Revenue Sharing is Complicated
-
-**The Challenge:**  
-Rev-shares in Web2 require custom contracts, compliance, and centralized systems.
-
-**AgentMesh Solves It With:**  
-- Instant rev-share setup per agent  
-- Programmable, transparent payment routing  
-- No KYC or traditional banking infrastructure
-
-
-
-## 3. Hosting Costs and Compute Risk
-
-**The Challenge:**  
-High inference costs and unpredictable demand make scaling risky.
-
-**AgentMesh Solves It With:**  
-- On-demand hosting via Akash  
-- Payments routed to compute providers  
-- Cost recovery baked into per-call pricing
-
-
-
-## 4. Aligns with Developer Monetization Trends
-
-**The Challenge:**  
-Developers want direct income from their AI work — not ads or VC funding.
-
-**AgentMesh Solves It With:**  
-- Agent-level ownership and monetization  
-- A marketplace of niche, sustainable AI services  
-- Infrastructure that supports micro-SaaS and indie developers
-
----
-#  Revenue Models for AgentMesh
-
-AgentMesh enables modular, autonomous AI agents to operate sustainably through programmable payments and decentralized revenue distribution. This document outlines the monetization strategies and composable economic flows that power the AgentMesh ecosystem.
+> Enterprises can now consume AI backed by **mathematical guarantees**, not marketing promises.
 
 ---
 
-## 1. Pay-Per-Use (Core Mechanism)
+## 2. Regulatory-Grade AI Compliance
 
-Use [`x402pay`](https://github.com/coinbase/x402) to monetize every query or action.
+AI regulation is accelerating globally — from the **EU AI Act** to **US executive orders** on foundation model transparency.
 
-### Flow
-- User signs EIP-3009 transfer
-- x402pay validates the payment
-- Agent executes the task and returns the result
+ZK-AgentMesh enables:
 
-###  Example Pricing
-| Task | Cost |
-|------|------|
-| GPT Agent Query | $0.02 |
-| Plugin Execution | $0.01 |
-| Image Generation | $0.05 |
-| PDF Export | $0.05 |
+* **Provable compliance** with privacy and fairness laws
+* Auditable training footprints **without exposing proprietary IP**
+* **Agent registries** with verified proof-of-training records
 
-
-
-##  2. Revenue Splitting (via CDP Wallet)
-
-Every transaction triggers automatic revenue routing via [CDP Wallet](https://docs.cdp.coinbase.com/cdp-apis/docs/welcome), with programmable splits:
-
-| Recipient                | Share |
-|--------------------------|-------|
-| Agent/Plugin Developer   | 60%   |
-| Host (e.g., Akash)       | 20%   |
-| AgentMesh Treasury       | 10%   |
-| Referral / Affiliate     | 10%   |
-
-Split logic is defined once per module and enforced on-chain.
-
-
-
-##  3. Module Developer Royalties
-
-AgentMesh supports a **plug-and-earn** model:
-
-- Third-party developers can publish:
-  - Autonomous agents
-  - Plugins/tools
-  - Composable workflows
-
-- When used, the system automatically routes a share of payments to the developer’s wallet via CDP Wallet.
-
->  This builds a financial incentive to contribute reusable modules.
-
-
-
-## 4. Self-Funding Agents & Treasuries
-
-Agents (or collectives of agents) can:
-
-- Manage their own CDP Wallet treasuries
-- Pay for compute or infrastructure
-- Disburse funds to contributors
-- Create bounties or sponsor upgrades
-
-> This enables **DAO-like agents** with autonomous economics.
-
-
-
-##  5. Freemium + Subscriptions
-
-Support multiple pricing tiers:
-
-- **Free Tier** – Limited daily usage (e.g., 10 requests/day)
-- **Pay-per-use** – Beyond free limit, via x402pay
-- **Subscription** – Fixed monthly fee debited via CDP Wallet
-
-
-
-##  6. Affiliate & Referral Economy
-
-Reward community members for distribution:
-
-- Anyone who shares/embeds agents earns a referral fee (5–10%)
-- Logic is enforced through CDP Wallet split trees
-- Perfect for creators, curators, and marketplace integrators
-
->  Viral growth meets on-chain revenue attribution.
+This creates the first **on-chain compliance layer** for foundation models and agent-based AI.
 
 ---
+
+## 3. Aligning Incentives in Open AI Ecosystems
+
+Collaborative AI development is often hampered by unclear incentives:
+
+* Who gets paid for training a model?
+* How are infra providers rewarded?
+* How do we enforce contributions to be honest?
+
+**ZK-AgentMesh + CDP Wallet + x402pay** enables:
+
+* Programmable revenue splits for every agent
+* Micro-payments triggered only when **proof-backed work is delivered**
+* Long-term **reputation systems** built from on-chain training history
+
+> It’s a sustainable model for **open-source, verifiable AI collaboration**.
+
+---
+
+## 4. Privacy-Preserving AI in Sensitive Domains
+
+Use cases like **healthcare**, **finance**, and **legal AI** demand:
+
+* Strong privacy guarantees for training data
+* Verifiable performance without revealing internals
+
+ZK-AgentMesh allows:
+
+* **Proofs of model quality, compliance, and ethics** without exposing datasets
+* Deployment on **secure enclaves (SGX/SEV)** inside Akash for added runtime privacy
+
+
+
+---
+
+## 5. Decentralized Infrastructure for a Multi-Agent World
+
+As we move toward a future of **autonomous agent networks**, we need:
+
+* Infrastructure that doesn’t rely on centralized clouds
+* Verifiable behavior coordination between agents
+* Trustless payment and discovery mechanisms
+
+ZK-AgentMesh provides:
+
+* **Akash-based decentralized compute** for training/inference
+* **ZK circuits for logic composition** between agents
+* **Marketplace + Wallet + Pay API** for economic coordination
+
+
+
+---
+
+##  Use Case Highlights
+
+| Use Case                       | ZK-AgentMesh Impact                                   |
+| ------------------------------ | ----------------------------------------------------- |
+| Healthcare AI               | Verifiable privacy + ethics proofs for sensitive data |
+| Financial Advising Agents   | Prove compliance (e.g., no conflict of interest)      |
+| Education Tutors            | Guarantee non-toxic, unbiased knowledge base          |
+| Legal Assistants            | ZK audit trail of logic and source provenance         |
+| Enterprise LLM-as-a-Service | On-chain registration of compliance-grade models      |
+| Agent Swarms                | Chain verifiable capabilities between agents          |
+
+
+
+---
+
+#  Revenue Models in ZK-AgentMesh
+
+ZK-AgentMesh creates a **crypto-native AI economy**, where revenue is driven by per-call usage, cryptographic verification, and programmable incentives. Here’s how the platform enables sustainable, scalable monetization:
+
+---
+
+## 1. **Pay-Per-Call Model (x402pay)**
+
+**How it works:**
+
+* Users pay for each agent interaction using `x402pay` (wallet-native payment system)
+* No subscriptions, logins, or API keys required
+* Each call triggers a verifiable, on-chain payment flow
+
+**Benefits:**
+
+* Low barrier to entry for users
+* Simple, scalable pricing
+* Built-in micropayments and auto-splits
+
+>  Example: An agent charges \$0.03 per call the user pays via x402pay, and funds are split automatically among the contributors.
+
+---
+
+## 2. **ZK Premium Pricing**
+
+**How it works:**
+
+* Agents with verified proofs (data quality, compliance, ethics, etc.) can charge premium rates
+* Users can **see and filter** agents by verification level (ZK badges)
+
+**Tiers:**
+
+| Agent Type        | Example Price    | Verification Status             |
+| ----------------- | ---------------- | ------------------------------- |
+| Basic Agent       | \$0.01/call      | No ZK proof                     |
+| ZK-Verified Agent | \$0.03–0.05/call | Proof of quality + compliance   |
+| Enterprise Agent  | \$0.10+/call     | Full audit trail, custom proofs |
+
+> Higher-quality agents earn more because their capabilities are cryptographically provable.
+
+---
+
+## 3. **Revenue Splits via CDP Wallet**
+
+**How it works:**
+
+* Revenue from each call is split on-chain between:
+
+  * Agent creator (e.g., LLM logic)
+  * Trainer (who verified training)
+  * Infra provider (e.g., Akash node)
+  * Verifier (who validated proofs)
+
+**Example Split:**
+
+```
+70% → Agent creator  
+15% → Verifier pool  
+10% → Infra provider  
+5% → ZK Training staker
+```
+
+**Benefits:**
+
+* No need to redeploy contracts for new splits
+* Incentivizes ecosystem contributions
+* Can support affiliate, DAO, or community payouts
+
+---
+
+## 4. **Training Staking & Verification Rewards**
+
+**How it works:**
+
+* Developers stake tokens on their training claims
+* If proofs verify, stakers earn yield or rewards
+* Verifiers who validate proofs also get paid
+
+**Mechanics:**
+
+* Earn **5–15% APY** on staked training tokens
+* Rewards scale with accuracy, data size, compliance level
+
+>  If a developer claims 100 hours of GDPR-compliant training, stakes tokens, and verifies it cryptographically → They unlock rewards + premium listing.
+
+---
+
+## 5. **Marketplace Fees (Platform Revenue)**
+
+**ZK-AgentMesh platform fee options:**
+
+* **Per-call fee**: 5–10% cut of agent calls
+* **Verification service fee**: \$0.10–\$1 per verified proof
+* **Enterprise onboarding**: One-time onboarding or audit fee
+* **Listing priority fee**: Premium listing position for top agents
+
+**Optional models:**
+
+* DAO-based treasury management
+* Platform fees fund public ZK circuit development or verifier bounties
+
+---
+
+## 6. **Enterprise ZK-As-a-Service**
+
+**For Enterprises:**
+
+* Custom ZK circuits for proprietary training claims
+* Dedicated compliance verification (HIPAA, SOC 2, ISO-27001, etc.)
+* SLAs and private compute via Akash secure enclaves
+
+**Pricing:**
+
+* One-time training + proof fee: \$200–\$1,000
+* Call-based billing: \$0.10–\$1.00 per call
+* Proof management: \$100–\$300/month for hosted verification
+
+---
+
+## 7. **Proof Composition Royalties (Advanced)**
+
+**Future model:**
+
+* Agents that call other agents inherit proofs
+* Original agent authors earn royalties when proofs are reused
+
+**Example:**
+
+> Agent A has a verified proof of “legal compliance”
+> Agent B calls Agent A and composes it into a service
+> Agent A earns a % from Agent B’s usage (proof inheritance fee)
+
+---
+
+## Summary Table
+
+| Revenue Stream           | Who Benefits           | Recurrence |
+| ------------------------ | ---------------------- | ---------- |
+| Per-call billing         | Agent creators         | Ongoing    |
+| ZK premium pricing       | Verified developers    | Ongoing    |
+| Revenue splits           | Ecosystem contributors | Ongoing    |
+| Verification rewards     | Verifiers + stakers    | Periodic   |
+| Platform fees            | ZK-AgentMesh protocol  | Ongoing    |
+| Enterprise onboarding    | Platform + devs        | One-time   |
+| Proof royalties (future) | Original proof authors | Ongoing    |
+
+---
+
 
 ##  Composability Benefits
 
@@ -326,7 +486,7 @@ Reward community members for distribution:
 -  Incentive-aligned ecosystem of builders, hosts, and curators
 
 
-AgentMesh isn’t just an AI runtime — it’s an economy of autonomous, monetizable software agents.
+ZK-AgentMesh isn’t just an AI runtime — it’s an economy of autonomous, monetizable software agents.
 
 ---
 
@@ -341,7 +501,7 @@ AgentMesh isn’t just an AI runtime — it’s an economy of autonomous, moneti
 ### Hero Section
 ![Screenshot from 2025-06-09 14-14-39](https://github.com/user-attachments/assets/2bfafbef-9a89-468f-b3f3-10e0f445adb2)
 
-### Why Choose AgentMesh?
+### Why Choose ZK-AgentMesh?
 ![Screenshot from 2025-06-09 14-16-54](https://github.com/user-attachments/assets/62d782e4-a7f7-42ee-a225-f4bc0a11dc88)
 
 
@@ -388,7 +548,7 @@ AgentMesh isn’t just an AI runtime — it’s an economy of autonomous, moneti
 
 
 
-#  Tech Stack for AgentMesh
+#  Tech Stack for ZK-AgentMesh
 
 
 A modular, scalable architecture leveraging decentralized compute, crypto-native payments, and AI services.
@@ -436,7 +596,7 @@ A modular, scalable architecture leveraging decentralized compute, crypto-native
 --- 
 # Future Enhancements: Considerations for Scaling
 
-As AgentMesh grows into a modular and decentralized economy for AI agents, the following optional layers can be added to enhance scale, trust, and monetization flexibility:
+As ZK-AgentMesh grows into a modular and decentralized economy for AI agents, the following optional layers can be added to enhance scale, trust, and monetization flexibility:
 
 |  Layer | Description |
 |---------|-------------|
