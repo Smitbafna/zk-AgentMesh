@@ -1,115 +1,73 @@
 # apps/registry-api/Dockerfile
-FROM node:18-alpine
-
+FROM node:18-alpine AS base
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
-COPY next.config.js ./
-COPY tsconfig.json ./
-
 # Install dependencies
+FROM base AS deps
+COPY package.json package-lock.json* ./
+COPY packages/ipfs-storage/package.json ./packages/ipfs-storage/
 RUN npm ci --only=production
 
-# Copy source
-COPY src/ ./src/
-COPY public/ ./public/
-COPY prisma/ ./prisma/
+# Build the application
+FROM base AS builder
+COPY . .
+COPY --from=deps /app/node_modules ./node_modules
+RUN npm run build --filter=registry-api
 
-# Generate Prisma client
-RUN npx prisma generate
+# Production image
+FROM base AS runner
+ENV NODE_ENV=production
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-# Build Next.js app
-RUN npm run build
-
-# Create non-root user
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
+COPY --from=builder /app/apps/registry-api/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/apps/registry-api/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/apps/registry-api/.next/static ./.next/static
 
 USER nextjs
+EXPOSE 3000
+ENV PORT=3000
 
+CMD ["node", "server.js"]
+
+# apps/agent-runtime/Dockerfile  
+FROM node:18-alpine AS base
+RUN apk add --no-cache libc6-compat python3 make g++
+WORKDIR /app
+
+# Install dependencies
+FROM base AS deps
+COPY package.json package-lock.json* ./
+COPY packages/*/package.json ./packages/
+RUN npm ci --only=production
+
+# Build the application
+FROM base AS builder
+COPY . .
+COPY --from=deps /app/node_modules ./node_modules
+RUN npm run build --filter=agent-runtime
+
+# Production image
+FROM base AS runner
+ENV NODE_ENV=production
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 agentrunner
+
+# Copy built application
+COPY --from=builder --chown=agentrunner:nodejs /app/apps/agent-runtime/dist ./dist
+COPY --from=builder --chown=agentrunner:nodejs /app/node_modules ./node_modules
+COPY --from=builder --chown=agentrunner:nodejs /app/packages ./packages
+
+# Create directories for ZK setup
+RUN mkdir -p /app/zk-setup /app/proving-keys /app/verification-keys
+RUN chown -R agentrunner:nodejs /app/zk-setup /app/proving-keys /app/verification-keys
+
+USER agentrunner
 EXPOSE 3001
+ENV PORT=3001
 
-CMD ["npm", "start"]
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:3001/health || exit 1
 
----
-# apps/registry-api/registry-manifest.yml
-version: "2.0"
-
-services:
-  registry-api:
-    image: zk-registry-api:latest
-    env:
-      - NODE_ENV=production
-      - DATABASE_URL=postgresql://user:pass@postgres:5432/registry
-      - ETHEREUM_RPC_URL=https://mainnet.infura.io/v3/YOUR_KEY
-      - REGISTRY_CONTRACT_ADDRESS=0x...
-    expose:
-      - port: 3001
-        as: 80
-        to:
-          - global: true
-    resources:
-      cpu:
-        units: 1
-      memory:
-        size: 2Gi
-      storage:
-        size: 10Gi
-
-  postgres:
-    image: postgres:15-alpine
-    env:
-      - POSTGRES_DB=registry
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=secure_password
-    resources:
-      cpu:
-        units: 1
-      memory:
-        size: 1Gi
-      storage:
-        size: 50Gi
-
-profiles:
-  compute:
-    registry-api:
-      resources:
-        cpu:
-          units: 1
-        memory:
-          size: 2Gi
-        storage:
-          size: 10Gi
-    postgres:
-      resources:
-        cpu:
-          units: 1
-        memory:
-          size: 1Gi
-        storage:
-          size: 50Gi
-
-  placement:
-    akash:
-      attributes:
-        region: us-west
-      pricing:
-        registry-api:
-          denom: uakt
-          amount: 500
-        postgres:
-          denom: uakt
-          amount: 300
-
-deployment:
-  registry-api:
-    akash:
-      profile: registry-api
-      count: 1
-  postgres:
-    akash:
-      profile: postgres
-      count: 1
-
----
+CMD ["node", "dist/server.js"]

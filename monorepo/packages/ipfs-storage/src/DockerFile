@@ -1,0 +1,117 @@
+# packages/ipfs-storage/Dockerfile (for standalone IPFS service)
+FROM node:18-alpine AS base
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+FROM base AS deps
+COPY package.json package-lock.json* ./
+RUN npm ci --only=production
+
+FROM base AS builder
+COPY . .
+COPY --from=deps /app/node_modules ./node_modules
+RUN npm run build
+
+FROM base AS runner
+ENV NODE_ENV=production
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 ipfsservice
+
+COPY --from=builder --chown=ipfsservice:nodejs /app/dist ./dist
+COPY --from=builder --chown=ipfsservice:nodejs /app/node_modules ./node_modules
+
+USER ipfsservice
+EXPOSE 3003
+
+CMD ["node", "dist/service.js"]
+
+# docker-compose.yml (Updated for IPFS)
+version: '3.8'
+
+services:
+  registry-api:
+    build:
+      context: .
+      dockerfile: apps/registry-api/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - PINATA_API_KEY=${PINATA_API_KEY}
+      - PINATA_API_SECRET=${PINATA_API_SECRET}
+      - NEXT_PUBLIC_IPFS_GATEWAY=https://gateway.pinata.cloud
+    depends_on:
+      - ipfs-service
+    restart: unless-stopped
+
+  agent-runtime:
+    build:
+      context: .
+      dockerfile: apps/agent-runtime/Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - PINATA_API_KEY=${PINATA_API_KEY}
+      - PINATA_API_SECRET=${PINATA_API_SECRET}
+      - X402PAY_ENDPOINT=${X402PAY_ENDPOINT}
+      - CDP_WALLET_ADDRESS=${CDP_WALLET_ADDRESS}
+      - CDP_WALLET_PRIVATE_KEY=${CDP_WALLET_PRIVATE_KEY}
+      - REGISTRY_API_URL=http://registry-api:3000
+    volumes:
+      - zk-setup:/app/zk-setup
+      - proving-keys:/app/proving-keys
+      - verification-keys:/app/verification-keys
+    depends_on:
+      - registry-api
+      - ipfs-service
+    restart: unless-stopped
+
+  ipfs-service:
+    build:
+      context: packages/ipfs-storage
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3003"
+    environment:
+      - PINATA_API_KEY=${PINATA_API_KEY}
+      - PINATA_API_SECRET=${PINATA_API_SECRET}
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: apps/frontend/Dockerfile
+    ports:
+      - "3002:3002"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://registry-api:3000
+      - NEXT_PUBLIC_RUNTIME_URL=http://agent-runtime:3001
+      - NEXT_PUBLIC_IPFS_GATEWAY=https://gateway.pinata.cloud
+    depends_on:
+      - registry-api
+      - agent-runtime
+    restart: unless-stopped
+
+  # Optional: Local IPFS node for development
+  ipfs-node:
+    image: ipfs/kubo:latest
+    ports:
+      - "4001:4001"
+      - "5001:5001"
+      - "8080:8080"
+    volumes:
+      - ipfs-data:/data/ipfs
+    environment:
+      - IPFS_PROFILE=server
+    profiles:
+      - local-ipfs
+
+volumes:
+  zk-setup:
+  proving-keys:
+  verification-keys:
+  ipfs-data:
+
+networks:
+  default:
+    name: zk-agentmesh-network
