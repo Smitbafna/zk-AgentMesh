@@ -1,144 +1,66 @@
 // apps/registry-api/src/app/api/agents/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { ethers } from 'ethers';
-import { PrismaClient } from '@prisma/client';
+import { PinataIPFSStorage } from './ipfs-storage';
 
-const prisma = new PrismaClient();
-
-// Contract ABI for the registry
-const REGISTRY_ABI = [
-  "function getAgent(string memory agentId) external view returns (address owner, string memory metadataHash, uint256 verificationLevel)",
-  "function registerAgent(string memory agentId, string memory metadataHash, bytes32[] memory proofHashes) external",
-  "function updateProofs(string memory agentId, bytes32[] memory proofHashes) external"
-];
-
-const provider = new ethers.JsonRpcProvider(process.env.ETHEREUM_RPC_URL);
-const registryContract = new ethers.Contract(
-  process.env.REGISTRY_CONTRACT_ADDRESS!,
-  REGISTRY_ABI,
-  provider
+const ipfsStorage = new PinataIPFSStorage(
+  process.env.PINATA_API_KEY!,
+  process.env.PINATA_API_SECRET!
 );
 
+// GET /api/agents - Search and list agents
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const category = searchParams.get('category');
-    const minVerificationLevel = searchParams.get('minVerification');
-    const maxPrice = searchParams.get('maxPrice');
+    const query = {
+      name: searchParams.get('name') || undefined,
+      developer: searchParams.get('developer') || undefined,
+      tags: searchParams.get('tags')?.split(',') || undefined,
+      proofTypes: searchParams.get('proofTypes')?.split(',') || undefined,
+    };
 
-    // Build query filters
-    const where: any = {};
-    if (category) where.category = category;
-    if (minVerificationLevel) where.verificationLevel = { gte: parseInt(minVerificationLevel) };
-    if (maxPrice) where.pricePerCall = { lte: parseFloat(maxPrice) };
-
-    const agents = await prisma.agent.findMany({
-      where,
-      include: {
-        proofs: true,
-        dependencies: true
-      },
-      orderBy: {
-        verificationLevel: 'desc'
-      }
-    });
-
+    const agents = await ipfsStorage.searchAgents(query);
+    
     return NextResponse.json({
-      agents: agents.map(agent => ({
-        id: agent.id,
-        name: agent.name,
-        description: agent.description,
-        category: agent.category,
-        owner: agent.owner,
-        pricePerCall: agent.pricePerCall,
-        verificationLevel: agent.verificationLevel,
-        proofTypes: agent.proofs.map(p => p.proofType),
-        dependencies: agent.dependencies.map(d => d.dependsOnAgentId),
-        endpoint: agent.endpoint,
-        createdAt: agent.createdAt
-      }))
+      success: true,
+      data: agents,
+      count: agents.length,
     });
   } catch (error) {
-    console.error('Error fetching agents:', error);
-    return NextResponse.json({ error: 'Failed to fetch agents' }, { status: 500 });
+    console.error('Error searching agents:', error);
+    return NextResponse.json(
+      { success: false, error: 'Failed to search agents' },
+      { status: 500 }
+    );
   }
 }
 
+// POST /api/agents - Register new agent
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const {
-      agentId,
-      name,
-      description,
-      category,
-      owner,
-      pricePerCall,
-      endpoint,
-      metadataHash,
-      proofHashes,
-      dependencies = []
-    } = body;
-
-    // Verify the agent is registered on-chain
-    try {
-      const onChainData = await registryContract.getAgent(agentId);
-      if (onChainData.owner === ethers.ZeroAddress) {
-        return NextResponse.json(
-          { error: 'Agent not found on-chain registry' },
-          { status: 404 }
-        );
-      }
-    } catch (error) {
+    const agentData = await request.json();
+    
+    // Validate required fields
+    if (!agentData.agent?.id || !agentData.agent?.name) {
       return NextResponse.json(
-        { error: 'Failed to verify on-chain registration' },
+        { success: false, error: 'Agent ID and name are required' },
         { status: 400 }
       );
     }
 
-    // Create agent record
-    const agent = await prisma.agent.create({
-      data: {
-        id: agentId,
-        name,
-        description,
-        category,
-        owner,
-        pricePerCall,
-        endpoint,
-        metadataHash,
-        verificationLevel: proofHashes.length, // Simple verification scoring
-        proofs: {
-          create: proofHashes.map((hash: string, index: number) => ({
-            proofType: ['quality', 'ethics', 'compliance'][index] || 'custom',
-            proofHash: hash,
-            verifiedAt: new Date()
-          }))
-        },
-        dependencies: {
-          create: dependencies.map((depId: string) => ({
-            dependsOnAgentId: depId
-          }))
-        }
-      },
-      include: {
-        proofs: true,
-        dependencies: true
-      }
-    });
-
+    const registryHash = await ipfsStorage.registerAgent(agentData);
+    
     return NextResponse.json({
-      message: 'Agent registered successfully',
-      agent: {
-        id: agent.id,
-        verificationLevel: agent.verificationLevel,
-        proofCount: agent.proofs.length
-      }
+      success: true,
+      data: {
+        agentId: agentData.agent.id,
+        registryHash,
+        ipfsUrl: `https://gateway.pinata.cloud/ipfs/${registryHash}`,
+      },
     });
   } catch (error) {
     console.error('Error registering agent:', error);
     return NextResponse.json(
-      { error: 'Failed to register agent' },
+      { success: false, error: 'Failed to register agent' },
       { status: 500 }
     );
   }
