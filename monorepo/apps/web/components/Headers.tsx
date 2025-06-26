@@ -44,7 +44,7 @@ const Header = ({
       <div className="flex items-center justify-between">
         {/* Title */}
         <div className="flex items-center space-x-4">
-        <h1 className="text-3xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+        <h1 className="text-5xl lg:text-6xl xl:text-5xl 2xl:text-5xl font-black leading-[1.1] tracking-tight text-pink-200"> 
         AgentMesh
           </h1>
         </div>

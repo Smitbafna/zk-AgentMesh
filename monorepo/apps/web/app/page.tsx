@@ -69,20 +69,40 @@ export default function Page() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 min-h-screen">
-       <Header/>
-<HeroSection/>
-       
+     
+<div className="relative z-10 min-h-screen">
+  <Header/> 
+  
+  {/* Animated Light Line Separator */}
+  <div className="relative w-full h-px bg-gradient-to-r from-transparent via-pink-300/50 to-transparent overflow-hidden">
+    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-pulse"></div>
+    <div className="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-transparent via-pink-200 to-transparent animate-[moveLight_3s_ease-in-out_infinite]"></div>
+  </div>
+  
+  <HeroSection/>  
+  <FeaturesSection/>    
 
-<StatsSection/>
-<HowItWorksSection/>
-<FeaturesSection/>
+  <FAQSection/> 
+ 
+    
+  <Footer/>          
+</div>
 
-<Footer/>
-
-
-
-      </div>
+<style jsx>{`
+  @keyframes moveLight {
+    0% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(calc(100vw + 100px));
+      opacity: 0;
+    }
+  }
+`}</style>
 
       <style jsx>{`
         @keyframes float {

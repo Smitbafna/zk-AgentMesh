@@ -27,7 +27,7 @@ function AgentCreationSection() {
     selfPayout: '70',
     infraPayout: '20',
     daoPayout: '10',
-    endpointType: 'bedrock', // 'bedrock' or 'custom'
+    endpointType: 'bedrock', 
     selectedModel: 'claude',
     customEndpoint: ''
   });
@@ -42,7 +42,7 @@ function AgentCreationSection() {
 
   const bedrockModels = [
     { id: 'claude', name: 'Claude Sonnet', description: 'Advanced reasoning and analysis' },
-    { id: 'nova', name: 'Amazon Nova', description: 'Fast and efficient responses' },
+    { id: 'nova', name: 'Llama', description: 'Fast and efficient responses' },
     { id: 'titan', name: 'Amazon Titan', description: 'Large-scale text generation' }
   ];
 
@@ -218,7 +218,7 @@ function AgentCreationSection() {
           </div>
         )}
 
-        {/* Step 4: Configure Handler */}
+     
         {currentStep === 4 && (
           <div className="space-y-6">
             <h2 className="text-3xl font-bold text-white mb-6"> Configure Handler</h2>
@@ -283,7 +283,7 @@ function AgentCreationSection() {
           </div>
         )}
 
-        {/* Step 5: Deploy & Launch */}
+  
         {currentStep === 5 && !isDeployed && (
           <div className="space-y-6 text-center">
             <h2 className="text-3xl font-bold text-white mb-6"> Ready to Deploy</h2>
@@ -303,7 +303,7 @@ function AgentCreationSection() {
               <h3 className="text-xl font-bold text-white mb-2">Deployment Process</h3>
               <div className="text-left space-y-2 text-purple-100">
                 <p> Agent hosted on Akash (decentralized cloud)</p>
-                <p> Auto-deployed via CLI or webhook</p>
+                
                 <p> Instant marketplace listing</p>
                 <p> Real-time analytics dashboard</p>
               </div>
@@ -311,7 +311,7 @@ function AgentCreationSection() {
           </div>
         )}
 
-        {/* Step 5: Deployment Details */}
+       
         {currentStep === 5 && isDeployed && deploymentDetails && (
           <div className="space-y-6">
             <div className="text-center mb-8">
@@ -440,7 +440,7 @@ function AgentCreationSection() {
         )}
       </div>
 
-      {/* Navigation Buttons */}
+    
       <div className="flex justify-between">
         <button
           onClick={prevStep}
@@ -481,14 +481,14 @@ export default function Page() {
   return (
     <div className="min-h-screen relative overflow-hidden bg-black">
       <OnchainKitProvider apiKey="HtKBr6ZPPcdHN6plf9qm4G3TAuQtV7Kf" chain={base}>
-        {/* Animated Background */}
+     
         <div className="absolute inset-0 z-0">
-          {/* Gradient Orbs */}
+      
           <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute top-40 right-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-2000"></div>
           
-          {/* Floating Particles */}
+       
           <div className="absolute inset-0">
             {[...Array(20)].map((_, i) => (
               <div
@@ -504,7 +504,7 @@ export default function Page() {
             ))}
           </div>
 
-          {/* Grid Pattern */}
+      
           <div className="absolute inset-0 opacity-10">
             <div className="h-full w-full bg-gradient-to-br from-transparent via-white/5 to-transparent"></div>
             <svg className="absolute inset-0 h-full w-full" xmlns="http://www.w3.org/2000/svg">
@@ -517,7 +517,6 @@ export default function Page() {
             </svg>
           </div>
 
-          {/* Moving Gradient Lines */}
           <div className="absolute inset-0">
             <div className="absolute h-px w-full bg-gradient-to-r from-transparent via-purple-500/50 to-transparent animate-pulse top-1/4"></div>
             <div className="absolute h-px w-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent animate-pulse top-2/3 delay-1000"></div>
@@ -526,7 +525,7 @@ export default function Page() {
           </div>
         </div>
 
-        {/* Main Content */}
+     
         <div className="relative z-10 min-h-screen">
           <Header/>
           <AgentCreationSection/>

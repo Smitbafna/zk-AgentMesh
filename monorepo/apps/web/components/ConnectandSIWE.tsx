@@ -44,7 +44,7 @@ export function ConnectAndSIWE() {
       <button
         onClick={handleConnect}
         disabled={isConnecting}
-        className="px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed font-medium transition-colors"
+        className="px-4 py-3 bg-pink-400 text-white rounded-lg hover:bg-pink-300 disabled:bg-pink-300 disabled:cursor-not-allowed font-medium transition-colors"
       >
         {isConnecting ? "Connecting..." : "Connect Wallet"}
       </button>

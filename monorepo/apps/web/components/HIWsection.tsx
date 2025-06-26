@@ -1,9 +1,17 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 
 const HowItWorksSection = () => {
+  const [activeCard, setActiveCard] = useState(null);
+
+  const handleCardClick = (id) => {
+    setActiveCard(id);
+    setTimeout(() => setActiveCard(null), 2000); // Animation lasts 2 seconds
+  };
+
   const steps = [
     {
+      id: 1,
       number: 1,
       title: "Connect Wallet",
       description: "Connect your Web3 wallet to access the platform and manage your AI agents securely",
@@ -17,6 +25,7 @@ const HowItWorksSection = () => {
       )
     },
     {
+      id: 2,
       number: 2,
       title: "Browse & Select",
       description: "Explore our marketplace of AI agents or use our no-code builder to create your own custom agent",
@@ -30,6 +39,7 @@ const HowItWorksSection = () => {
       )
     },
     {
+      id: 3,
       number: 3,
       title: "Configure & Deploy",
       description: "Customize your agent's parameters, train with your data, and deploy instantly to our global infrastructure",
@@ -44,6 +54,7 @@ const HowItWorksSection = () => {
       )
     },
     {
+      id: 4,
       number: 4,
       title: "Earn & Scale",
       description: "Monitor performance, collect payments automatically, and scale your AI agents to reach millions of users",
@@ -59,8 +70,19 @@ const HowItWorksSection = () => {
   ];
 
   const StepCard = ({ step }) => (
-    <div className="text-center group">
-      <div className="relative mb-8">
+    <div 
+      className={`text-center group relative cursor-pointer overflow-hidden rounded-2xl p-6 transition-all duration-300 ${
+        activeCard === step.id ? 'animate-pulse' : ''
+      }`}
+      onClick={() => handleCardClick(step.id)}
+    >
+      {activeCard === step.id && (
+        <div className="absolute inset-0 rounded-2xl">
+          <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-white via-transparent to-white bg-clip-border animate-spin-slow opacity-80"></div>
+          <div className="absolute inset-0 rounded-2xl border-2 border-white/30 animate-border-glow"></div>
+        </div>
+      )}
+      <div className="relative mb-8 z-10">
         <div className={`w-20 h-20 bg-gradient-to-r ${step.gradient} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg ${step.shadowColor}`}>
           {step.icon}
         </div>
@@ -68,40 +90,59 @@ const HowItWorksSection = () => {
           {step.number}
         </div>
       </div>
-      <h3 className="text-xl font-bold text-white mb-4">{step.title}</h3>
-      <p className="text-white/70">{step.description}</p>
+      <h3 className="text-xl font-bold text-white mb-4 relative z-10">{step.title}</h3>
+      <p className="text-white/70 relative z-10">{step.description}</p>
     </div>
   );
 
   return (
-    <section className="container mx-auto px-6 py-20">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-          How It <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Works</span>
-        </h2>
-        <p className="text-xl text-white/70 max-w-3xl mx-auto">
-          Get started with AI agents in just 4 simple steps
-        </p>
-      </div>
-
-      <div className="relative">
-        {/* Connection Line */}
-        <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500/50 via-blue-500/50 to-cyan-500/50 transform -translate-y-1/2"></div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-          {steps.map((step, index) => (
-            <StepCard key={index} step={step} />
-          ))}
+    <div className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen font-inter">
+      <style>{`
+        @keyframes border-glow {
+          0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+          50% { box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.3); }
+          100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+        }
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .animate-border-glow {
+          animation: border-glow 2s ease-in-out;
+        }
+        .animate-spin-slow {
+          animation: spin-slow 2s linear;
+        }
+      `}</style>
+      <section className="container mx-auto px-6 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+            How It <span className="text-pink-200">Works</span>
+          </h2>
+          <p className="text-xl text-white/70 max-w-3xl mx-auto font-medium">
+            Get started with AI agents in just 4 simple steps
+          </p>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <button className="px-8 py-4 bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-cyan-700 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-purple-500/25">
-            Start Building Now
-          </button>
+        <div className="relative">
+          {/* Connection Line */}
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500/50 via-blue-500/50 to-cyan-500/50 transform -translate-y-1/2"></div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+            {steps.map((step) => (
+              <StepCard key={step.id} step={step} />
+            ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="text-center mt-16">
+            <button className="px-8 py-4 bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-cyan-700 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-purple-500/25 font-medium">
+              Start Building Now
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
