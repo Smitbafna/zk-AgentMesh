@@ -1,0 +1,115 @@
+# apps/registry-api/Dockerfile
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY next.config.js ./
+COPY tsconfig.json ./
+
+# Install dependencies
+RUN npm ci --only=production
+
+# Copy source
+COPY src/ ./src/
+COPY public/ ./public/
+COPY prisma/ ./prisma/
+
+# Generate Prisma client
+RUN npx prisma generate
+
+# Build Next.js app
+RUN npm run build
+
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nextjs -u 1001
+
+USER nextjs
+
+EXPOSE 3001
+
+CMD ["npm", "start"]
+
+---
+# apps/registry-api/registry-manifest.yml
+version: "2.0"
+
+services:
+  registry-api:
+    image: zk-registry-api:latest
+    env:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://user:pass@postgres:5432/registry
+      - ETHEREUM_RPC_URL=https://mainnet.infura.io/v3/YOUR_KEY
+      - REGISTRY_CONTRACT_ADDRESS=0x...
+    expose:
+      - port: 3001
+        as: 80
+        to:
+          - global: true
+    resources:
+      cpu:
+        units: 1
+      memory:
+        size: 2Gi
+      storage:
+        size: 10Gi
+
+  postgres:
+    image: postgres:15-alpine
+    env:
+      - POSTGRES_DB=registry
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=secure_password
+    resources:
+      cpu:
+        units: 1
+      memory:
+        size: 1Gi
+      storage:
+        size: 50Gi
+
+profiles:
+  compute:
+    registry-api:
+      resources:
+        cpu:
+          units: 1
+        memory:
+          size: 2Gi
+        storage:
+          size: 10Gi
+    postgres:
+      resources:
+        cpu:
+          units: 1
+        memory:
+          size: 1Gi
+        storage:
+          size: 50Gi
+
+  placement:
+    akash:
+      attributes:
+        region: us-west
+      pricing:
+        registry-api:
+          denom: uakt
+          amount: 500
+        postgres:
+          denom: uakt
+          amount: 300
+
+deployment:
+  registry-api:
+    akash:
+      profile: registry-api
+      count: 1
+  postgres:
+    akash:
+      profile: postgres
+      count: 1
+
+---

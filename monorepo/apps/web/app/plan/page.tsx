@@ -6,13 +6,7 @@ import CTAsection from "../../components/CTAsection";
 import React from 'react';
 
 
-
-
-
-
 import { OnchainKitProvider } from '@coinbase/onchainkit';
-
-
 
 
 export default function Page() {

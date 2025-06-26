@@ -1,0 +1,90 @@
+// Makefile
+.PHONY: setup build test deploy clean
+
+# Setup development environment
+setup:
+	@echo " Setting up ZK-AgentMesh development environment..."
+	npm install
+	turbo run zk:generate
+	turbo run build
+	docker-compose up -d postgres
+	@echo " Waiting for database to be ready..."
+	sleep 10
+	cd apps/registry-api && npx prisma migrate dev --name init
+	@echo " Setup complete!"
+
+# Build all packages
+build:
+	turbo run build
+
+# Run tests
+test:
+	turbo run test
+
+# Start development environment
+dev:
+	docker-compose up -d postgres
+	turbo run dev
+
+# Build Docker images
+docker:
+	turbo run docker:build
+
+# Deploy to Akash Network
+deploy-akash: docker
+	@echo " Deploying to Akash Network..."
+	./scripts/deploy-akash.sh
+
+# Deploy contracts
+deploy-contracts:
+	cd packages/contracts && npm run deploy
+
+# Generate ZK circuits
+zk-setup:
+	turbo run zk:generate
+
+# Clean build artifacts
+clean:
+	rm -rf node_modules
+	rm -rf */node_modules
+	rm -rf */*/node_modules
+	rm -rf */.next
+	rm -rf */dist
+	rm -rf packages/zk-circuits/build
+
+# Database operations
+db-reset:
+	docker-compose down postgres
+	docker volume rm zk-agentmesh_postgres_data
+	docker-compose up -d postgres
+	sleep 10
+	cd apps/registry-api && npx prisma migrate dev --name init
+
+# Lint all packages
+lint:
+	turbo run lint
+
+# Run security audit
+audit:
+	npm audit --recursive
+
+# Monitor deployments
+monitor:
+	@echo "Monitoring Akash deployments..."
+	akash query deployment list --owner $(AKASH_WALLET_ADDRESS)
+
+help:
+	@echo "Available commands:"
+	@echo "  setup           - Setup development environment"
+	@echo "  build           - Build all packages"
+	@echo "  test            - Run tests"
+	@echo "  dev             - Start development servers"
+	@echo "  docker          - Build Docker images"
+	@echo "  deploy-akash    - Deploy to Akash Network"
+	@echo "  deploy-contracts- Deploy smart contracts"
+	@echo "  zk-setup        - Generate ZK circuits"
+	@echo "  clean           - Clean build artifacts"
+	@echo "  db-reset        - Reset database"
+	@echo "  lint            - Lint all packages"
+	@echo "  audit           - Run security audit"
+	@echo "  monitor         - Monitor Akash deployments"

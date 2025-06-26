@@ -6,14 +6,7 @@ import Chat from "../../components/Chat";
 import React from 'react';
 
 
-
-
-
-
 import { OnchainKitProvider } from '@coinbase/onchainkit';
-
-
-
 
 export default function Page() {
  

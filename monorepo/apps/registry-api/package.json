@@ -1,0 +1,20 @@
+{
+  "name": "registry-api",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001",
+    "docker:build": "docker build -t zk-registry-api .",
+    "akash:deploy": "akash provider send-manifest registry-manifest.yml"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "@zk-agentmesh/contracts": "*",
+    "ethers": "^6.0.0",
+    "prisma": "^5.0.0",
+    "@prisma/client": "^5.0.0"
+  }
+}

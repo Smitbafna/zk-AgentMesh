@@ -1,0 +1,87 @@
+# apps/agent-runtime/Dockerfile
+FROM node:18-alpine
+
+# Install SGX runtime for trusted execution
+RUN apk add --no-cache linux-headers build-base
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY tsconfig.json ./
+
+# Install dependencies
+RUN npm ci --only=production
+
+# Copy source code
+COPY src/ ./src/
+COPY circuits/ ./circuits/
+
+# Build the application
+RUN npm run build
+
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S runtime -u 1001
+
+USER runtime
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
+
+---
+# apps/agent-runtime/akash-manifest.yml
+version: "2.0"
+
+services:
+  agent-runtime:
+    image: zk-agent-runtime:latest
+    env:
+      - NODE_ENV=production
+      - ZK_CIRCUIT_PATH=/app/circuits
+      - SGX_MODE=HW
+      - PAYMENT_WEBHOOK_URL=https://payment-api.zk-agentmesh.com
+    expose:
+      - port: 3000
+        as: 80
+        to:
+          - global: true
+    resources:
+      cpu:
+        units: 2
+      memory:
+        size: 4Gi
+      storage:
+        size: 20Gi
+        
+profiles:
+  compute:
+    agent-runtime:
+      resources:
+        cpu:
+          units: 2
+        memory:
+          size: 4Gi
+        storage:
+          size: 20Gi
+  placement:
+    akash:
+      attributes:
+        region: us-west
+        sgx: true
+      signedBy:
+        anyOf:
+          - "akash1..."
+      pricing:
+        agent-runtime:
+          denom: uakt
+          amount: 1000
+
+deployment:
+  agent-runtime:
+    akash:
+      profile: agent-runtime
+      count: 1
+
+---

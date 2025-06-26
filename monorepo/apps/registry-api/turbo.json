@@ -1,0 +1,35 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "globalDependencies": ["**/.env.*local"],
+    "pipeline": {
+      "build": {
+        "dependsOn": ["^build"],
+        "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+      },
+      "test": {
+        "dependsOn": ["build"],
+        "outputs": ["coverage/**"]
+      },
+      "lint": {
+        "outputs": []
+      },
+      "dev": {
+        "cache": false,
+        "persistent": true
+      },
+      "docker:build": {
+        "dependsOn": ["build"],
+        "outputs": []
+      },
+      "akash:deploy": {
+        "dependsOn": ["docker:build"],
+        "outputs": []
+      },
+      "zk:generate": {
+        "outputs": ["circuits/build/**"]
+      },
+      "deploy": {
+        "dependsOn": ["build", "test", "lint"]
+      }
+    }
+  }

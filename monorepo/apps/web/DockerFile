@@ -1,0 +1,91 @@
+# apps/web/Dockerfile
+FROM node:18-alpine AS base
+
+# Install dependencies only when needed
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+COPY package.json package-lock.json* ./
+RUN npm ci
+
+# Rebuild the source code only when needed
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+RUN npm run build
+
+# Production image, copy all the files and run next
+FROM base AS runner
+WORKDIR /app
+
+ENV NODE_ENV production
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
+EXPOSE 3000
+
+ENV PORT 3000
+
+CMD ["node", "server.js"]
+
+---
+# apps/frontend/frontend-manifest.yml
+version: "2.0"
+
+services:
+  frontend:
+    image: zk-frontend:latest
+    env:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_REGISTRY_API_URL=https://registry.zk-agentmesh.com
+      - NEXT_PUBLIC_WALLET_PROJECT_ID=your_wallet_connect_id
+    expose:
+      - port: 3000
+        as: 80
+        to:
+          - global: true
+    resources:
+      cpu:
+        units: 1
+      memory:
+        size: 2Gi
+      storage:
+        size: 5Gi
+
+profiles:
+  compute:
+    frontend:
+      resources:
+        cpu:
+          units: 1
+        memory:
+          size: 2Gi
+        storage:
+          size: 5Gi
+
+  placement:
+    akash:
+      attributes:
+        region: us-west
+      pricing:
+        frontend:
+          denom: uakt
+          amount: 400
+
+deployment:
+  frontend:
+    akash:
+      profile: frontend
+      count: 1
+
+---

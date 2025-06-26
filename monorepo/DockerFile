@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  agent-runtime:
+    build:
+      context: ./apps/agent-runtime
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - ZK_CIRCUIT_PATH=/app/circuits
+    volumes:
+      - ./apps/agent-runtime/circuits:/app/circuits
+      - ./packages/zk-circuits/build:/app/circuits/build
+
+  registry-api:
+    build:
+      context: ./apps/registry-api
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/registry
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_REGISTRY_API_URL=http://localhost:3001
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=registry
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
