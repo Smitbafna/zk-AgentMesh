@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavigationMenuDemo } from "./navbar";
+import { NavigationMenuDemo } from "./navbar.js";
 import { ConnectWallet } from '@coinbase/onchainkit/wallet';
 import { Avatar } from '@coinbase/onchainkit/identity';
-import { ConnectAndSIWE } from "./ConnectandSIWE";
+import { ConnectAndSIWE } from "./ConnectandSIWE.js";
 const Header = ({ 
   NavigationComponent = <NavigationMenuDemo/>, 
   WalletComponent = <ConnectAndSIWE/>, 

@@ -4,7 +4,7 @@ import * as React from "react";
 import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { config } from "../app/wagmi";
+import { config } from "../app/wagmi.js";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = React.useState(() => new QueryClient());

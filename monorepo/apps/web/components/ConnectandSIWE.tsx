@@ -6,7 +6,7 @@ import {
   useConnect,
   useDisconnect,
 } from "wagmi";
-import { cbWalletConnector } from "../app/wagmi";
+import { cbWalletConnector } from "../app/wagmi.js";
 
 export function ConnectAndSIWE() {
   const [isConnecting, setIsConnecting] = useState(false);

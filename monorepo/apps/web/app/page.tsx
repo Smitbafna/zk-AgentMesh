@@ -2,15 +2,15 @@
 import { base } from 'viem/chains';
 import styles from "./page.module.css";
 import Header from '@/components/Headers';
-import FAQSection from "../components/FAQsection";
-import CTASection from "../components/CTAsection";
+import FAQSection from "../components/FAQsection.js";
+import CTASection from "../components/CTAsection.js";
 import React from 'react';
-import StatsSection from '../components/STATsection';
-import HowItWorksSection from '../components/HIWsection';
-import Footer from '../components/Footer';
+import StatsSection from '../components/STATsection.js';
+import HowItWorksSection from '../components/HIWsection.js';
+import Footer from '../components/Footer.js';
 
-import FeaturesSection from '../components/Features';
-import HeroSection from '../components/Hero';
+import FeaturesSection from '../components/Features.js';
+import HeroSection from '../components/Hero.js';
 
 import { OnchainKitProvider } from '@coinbase/onchainkit';
 
