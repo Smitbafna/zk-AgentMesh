@@ -1,20 +1,28 @@
 {
   "name": "registry-api",
   "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start -p 3001",
-    "docker:build": "docker build -t zk-registry-api .",
-    "akash:deploy": "akash provider send-manifest registry-manifest.yml"
+    "dev": "next dev --port 3000",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
+    "@zk-agentmesh/ipfs-storage": "workspace:*",
     "next": "^14.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "@zk-agentmesh/contracts": "*",
-    "ethers": "^6.0.0",
-    "prisma": "^5.0.0",
-    "@prisma/client": "^5.0.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "cors": "^2.8.5",
+    "@types/cors": "^2.8.17"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "eslint": "^8.54.0",
+    "eslint-config-next": "^14.0.0",
+    "typescript": "^5.3.0"
   }
 }
