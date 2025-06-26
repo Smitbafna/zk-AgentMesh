@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AgentRequest, AgentResponse } from "../types/api.js";
+import { AgentRequest, AgentResponse } from "../types/api";
 
 /**
  * Sends a user message to the AgentKit backend API and retrieves the agent's response.

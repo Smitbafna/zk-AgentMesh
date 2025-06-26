@@ -2,7 +2,7 @@
 import { base } from 'viem/chains';
 import styles from "./page.module.css";
 import Header from '@/components/Headers';
-import Chat from "../../components/Chat.js";
+import Chat from "../../components/Chat";
 import React from 'react';
 
 
