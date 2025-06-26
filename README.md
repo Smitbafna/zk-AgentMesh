@@ -11,13 +11,12 @@ Please visit our [documentation](https://smits-organization-1.gitbook.io/zk-agen
 ### **Apps**
 - **`agent-runtime`** - Core agent execution environment with ZK proof generation
 - **`registry-api`** - Agent discovery and verification API service  
-- **`web`** - User interface for agent interaction and management
+- **`frontend`** - User interface for agent interaction and management
 
 ### **Packages**
 - **`circuits`** - Zero-knowledge proof circuits for quality and compliance
 - **`payment-layer`** - Micropayment infrastructure with revenue splitting
 - **`contracts`** - Smart contracts for agent registry and proof inheritance
-- **`ipfs-storage`** - IPFS storage 
 
 ### **Optimized Build Pipeline**
 - Dependency caching across all packages and apps
@@ -107,6 +106,7 @@ const ipfsHash = await pinata.pinJSONToIPFS(agentMetadata)
 
 ### **3. ZK Proof Engine** (`packages/circuits/`)
 
+
 **Features:**
 - Quality, ethics, and compliance circuits
 - Groth16 proof generation with snarkjs
@@ -128,7 +128,6 @@ const ipfsHash = await pinata.pinJSONToIPFS(agentMetadata)
 
 ### **5. Smart Contracts** (`packages/contracts/`)
 
-
 **Features:**
 - Agent registry with proof inheritance
 - Royalty system for proof creators
@@ -140,16 +139,16 @@ const ipfsHash = await pinata.pinJSONToIPFS(agentMetadata)
 ## **x402pay Integration with CDP & Amazon Nova**
 
 ### **Micropayment Infrastructure**
-The x402pay integration provides seamless micropayments for agent services without requiring user accounts or traditional payment processing.
+The x402pay integration provides seamless micropayments for AI agent services powered by Amazon Nova foundation models, without requiring user accounts or traditional payment processing.
 
 **Core Components:**
-- **Payment Channels**: Lightning Network-style channels for instant payments
+- **Payment Channels**: Lightning Network-style channels for instant AI inference payments
 - **Revenue Splitting**: Automated distribution via CDP Wallet programmable splits
-- **Gas Optimization**: Amazon Nova's compute pricing integrated with payment flow
+- **Model Usage Billing**: Per-token pricing for Amazon Nova model inference
 
 ### **CDP Wallet Integration**
 ```typescript
-// Revenue splitting configuration
+// Revenue splitting configuration for AI agents
 const revenueConfig = {
   agentCreator: 40,     // 40% to agent creator
   proofProvider: 30,    // 30% to proof inheritance chain
@@ -157,49 +156,58 @@ const revenueConfig = {
   validators: 10        // 10% to proof validators
 }
 
-// Automated split execution
+// Automated split execution after AI inference
 await cdpWallet.executeSplit({
-  amount: paymentAmount,
+  amount: inferencePayment,
   recipients: calculateRecipients(revenueConfig),
-  trigger: 'proof_verification_complete'
+  trigger: 'bedrock_inference_complete'
 })
 ```
 
-### **Amazon Nova Compute Integration**
-- **Cost-Aware Scheduling**: Dynamic pricing based on Nova's compute costs
-- **Payment Routing**: Direct integration between x402pay and Nova billing
-- **Resource Optimization**: Automatic scaling based on payment volume
-- **Privacy Preservation**: SGX attestation for sensitive computations
+### **Amazon Nova Foundation Models Integration**
+- **Nova Micro**: Fastest model for real-time agent responses
+- **Nova Lite**: Balanced performance for general agent tasks
+- **Nova Pro**: Advanced reasoning for complex agent workflows
+- **Multimodal Capabilities**: Vision and text processing for comprehensive agents
 
-**Payment Flow:**
+**AI-Powered Payment Flow:**
 1. User initiates agent request with x402pay micropayment
-2. Payment is held in escrow during execution
-3. Agent runs in Nova SGX environment with cost tracking
-4. Upon completion, payment is released and split via CDP Wallet
-5. Proof inheritance creators receive royalties automatically
+2. Payment covers estimated Amazon Nova model inference costs
+3. Agent processes request using Amazon Bedrock with Nova models
+4. Token usage tracked and billed in real-time
+5. Upon completion, payment split via CDP Wallet to all contributors
+6. ZK proofs generated to verify quality and compliance
 
 ### **Implementation Details**
 ```javascript
-// x402pay payment initialization
+// x402pay payment for AI inference
 const paymentChannel = await x402pay.createChannel({
-  amount: estimatedCost,
+  amount: estimatedInferenceCost,
   recipient: agentWallet,
   metadata: {
     agentId: selectedAgent.id,
-    executionType: 'sgx_verified',
+    modelType: 'amazon.nova-pro-v1:0',
+    maxTokens: 4000,
     inheritanceChain: proofInheritanceIds
   }
 })
 
-// Nova compute reservation
-const computeReservation = await nova.reserveCompute({
-  type: 'sgx_enabled',
-  duration: estimatedRuntime,
-  paymentChannel: paymentChannel.id
+// Amazon Bedrock Nova inference with payment tracking
+const bedrockResponse = await bedrock.invokeModel({
+  modelId: 'amazon.nova-pro-v1:0',
+  body: JSON.stringify({
+    messages: agentPrompt,
+    max_tokens: paymentChannel.maxTokens,
+    temperature: 0.7
+  }),
+  paymentChannelId: paymentChannel.id
 })
+
+// Automatic revenue split after inference
+await processInferencePayment(bedrockResponse.usage, paymentChannel)
 ```
 
-This integration ensures that agent creators are fairly compensated, proof inheritance is economically incentivized, and the entire system operates without traditional payment friction while maintaining privacy and security through SGX and zero-knowledge proofs.
+This integration ensures that AI agent creators are compensated for their Nova-powered agents, proof inheritance creators receive royalties, and the entire system operates with seamless micropayments tied directly to Amazon Bedrock inference costs.
 
 ## **Deployment Architecture**
 
