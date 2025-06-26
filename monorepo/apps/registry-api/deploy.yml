@@ -1,0 +1,52 @@
+version: "2.0"
+
+services:
+  registry-api:
+    image: zkagentmesh/registry-api:latest
+    expose:
+      - port: 3000
+        as: 80
+        to:
+          - global: true
+    env:
+      - PINATA_API_KEY=
+      - PINATA_API_SECRET=
+      - NEXT_PUBLIC_IPFS_GATEWAY=https://gateway.pinata.cloud
+      - NODE_ENV=production
+    resources:
+      cpu:
+        units: 0.5
+      memory:
+        size: 1Gi
+      storage:
+        size: 5Gi
+
+profiles:
+  compute:
+    registry-api:
+      resources:
+        cpu:
+          units: 0.5
+        memory:
+          size: 1Gi
+        storage:
+          size: 5Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+      pricing:
+        registry-api:
+          denom: uakt
+          amount: 1000
+
+deployment:
+  registry-api:
+    akash:
+      profile: registry-api
+      count: 1
+
+---

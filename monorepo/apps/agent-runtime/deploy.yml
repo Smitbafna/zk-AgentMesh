@@ -1,0 +1,60 @@
+version: "2.0"
+
+services:
+  agent-runtime:
+    image: zkagentmesh/agent-runtime:latest
+    expose:
+      - port: 3001
+        as: 80
+        to:
+          - global: true
+    env:
+      - PORT=3001
+      - PINATA_API_KEY=
+      - PINATA_API_SECRET=
+      - X402PAY_ENDPOINT=
+      - CDP_WALLET_ADDRESS=
+      - CDP_WALLET_PRIVATE_KEY=
+      - REGISTRY_API_URL=
+      - NODE_ENV=production
+      - ZK_SETUP_PATH=/app/zk-setup
+      - ZK_PROVING_KEY_PATH=/app/proving-keys
+      - ZK_VERIFICATION_KEY_PATH=/app/verification-keys
+    resources:
+      cpu:
+        units: 2.0
+      memory:
+        size: 4Gi
+      storage:
+        size: 20Gi
+
+profiles:
+  compute:
+    agent-runtime:
+      resources:
+        cpu:
+          units: 2.0
+        memory:
+          size: 4Gi
+        storage:
+          size: 20Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+        sgx: required  # For trusted execution
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+      pricing:
+        agent-runtime:
+          denom: uakt
+          amount: 5000
+
+deployment:
+  agent-runtime:
+    akash:
+      profile: agent-runtime
+      count: 1
+
+---
