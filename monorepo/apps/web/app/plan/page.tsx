@@ -2,7 +2,7 @@
 import { base } from 'viem/chains';
 import styles from "./page.module.css";
 import Header from '@/components/Headers';
-import CTAsection from "../../components/CTAsection.js";
+import CTAsection from "../../components/CTAsection";
 import React from 'react';
 
 
