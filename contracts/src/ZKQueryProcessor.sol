@@ -1,6 +1,8 @@
-// =============================================================================
-// QUERY PROCESSING AND PAYMENT CONTRACT
-// =============================================================================
+pragma solidity ^0.8.19;
+
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
 contract ZKQueryProcessor is ReentrancyGuard, Ownable {
     using ECDSA for bytes32;

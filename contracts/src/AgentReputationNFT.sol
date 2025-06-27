@@ -1,6 +1,7 @@
-// =============================================================================
-// AGENT REPUTATION NFT CONTRACT
-// =============================================================================
+pragma solidity ^0.8.19;
+
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract AgentReputationNFT is ERC721, Ownable {
     struct ReputationMetadata {
