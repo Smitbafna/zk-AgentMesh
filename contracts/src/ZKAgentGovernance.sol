@@ -1,6 +1,9 @@
 pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
+import {ZKAgentVerificationCore} from "./ZKAgentVerificationCore.sol";
+import {AgentReputationNFT} from "./AgentReputationNFT.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol"; 
 
 contract ZKAgentGovernance is Ownable {
     struct Proposal {

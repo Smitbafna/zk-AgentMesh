@@ -78,7 +78,7 @@ contract AgentReputationNFT is ERC721, Ownable {
     }
     
     function tokenURI(uint256 tokenId) public view override returns (string memory) {
-        require(_exists(tokenId), "Token does not exist");
+        require(_ownerOf(tokenId) != address(0), "Token does not exist");
         return reputationData[tokenId].metadataURI;
     }
     

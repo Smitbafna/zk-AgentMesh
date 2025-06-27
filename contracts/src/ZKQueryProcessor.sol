@@ -1,8 +1,11 @@
 pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+import {ZKAgentVerificationCore} from "./ZKAgentVerificationCore.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import {ZKVerificationLib} from "./ZKVerificationLib.sol";
 
 contract ZKQueryProcessor is ReentrancyGuard, Ownable {
     using ECDSA for bytes32;
