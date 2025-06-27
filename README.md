@@ -86,7 +86,7 @@ const ipfsHash = await pinata.pinJSONToIPFS(agentMetadata)
 
 
 **Features:**
-- Express.js server with TypeScript
+- Express.js server 
 - ZK proof generation pipeline
 - Payment verification via x402pay
 - Revenue splitting with CDP Wallet
